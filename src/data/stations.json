@@ -1,0 +1,2206 @@
+[
+  {
+    "id": "NSR:StopPlace:63197",
+    "name": "Abisko turiststation"
+  },
+  {
+    "id": "NSR:StopPlace:57778",
+    "name": "Abisko östra station"
+  },
+  {
+    "id": "NSR:StopPlace:64176",
+    "name": "Alingsås station"
+  },
+  {
+    "id": "NSR:StopPlace:62308",
+    "name": "Alna stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58804",
+    "name": "Alvdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64091",
+    "name": "Alvesta station"
+  },
+  {
+    "id": "NSR:StopPlace:63699",
+    "name": "Arboga station"
+  },
+  {
+    "id": "NSR:StopPlace:63353",
+    "name": "Arbrå station"
+  },
+  {
+    "id": "NSR:StopPlace:58886",
+    "name": "Arendal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59168",
+    "name": "Arna Gamle stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:398",
+    "name": "Arna stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59185",
+    "name": "Arvika station"
+  },
+  {
+    "id": "NSR:StopPlace:59616",
+    "name": "Asker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58793",
+    "name": "Askim stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59659",
+    "name": "Atna stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58892",
+    "name": "Audnedal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:441",
+    "name": "Auli stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62345",
+    "name": "Auma stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64129",
+    "name": "Bad Gastein"
+  },
+  {
+    "id": "NSR:StopPlace:63620",
+    "name": "Bastuträsk station"
+  },
+  {
+    "id": "NSR:StopPlace:57950",
+    "name": "Beihøldalen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:500",
+    "name": "Bellingmo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61927",
+    "name": "Berekvam stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59983",
+    "name": "Bergen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62379",
+    "name": "Bergsgrav stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62373",
+    "name": "Berkåk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64115",
+    "name": "Berlin Gesundbrunnen"
+  },
+  {
+    "id": "NSR:StopPlace:64116",
+    "name": "Berlin Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:64114",
+    "name": "Berlin Zoologischer Garten"
+  },
+  {
+    "id": "NSR:StopPlace:62393",
+    "name": "Billingstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57943",
+    "name": "Bingsfoss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64121",
+    "name": "Bischofshofen"
+  },
+  {
+    "id": "NSR:StopPlace:58951",
+    "name": "Bjerka stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62346",
+    "name": "Bjorli stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63355",
+    "name": "Björkliden station"
+  },
+  {
+    "id": "NSR:StopPlace:57941",
+    "name": "Bjørkåsen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62317",
+    "name": "Bjørnfjell stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58842",
+    "name": "Blaker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58888",
+    "name": "Blakstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58815",
+    "name": "Bleiken stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61928",
+    "name": "Blomheller stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58843",
+    "name": "Blommenholm stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61842",
+    "name": "Boden Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:59640",
+    "name": "Bodung stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58952",
+    "name": "Bodø stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63703",
+    "name": "Bollnäs station"
+  },
+  {
+    "id": "NSR:StopPlace:518",
+    "name": "Bolstadøyri stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60737",
+    "name": "Bondivann stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64172",
+    "name": "Borlänge station"
+  },
+  {
+    "id": "NSR:StopPlace:58830",
+    "name": "Brakerøya stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62353",
+    "name": "Breland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58805",
+    "name": "Brumunddal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63616",
+    "name": "Brunflo station"
+  },
+  {
+    "id": "NSR:StopPlace:63874",
+    "name": "Brunsberg station"
+  },
+  {
+    "id": "NSR:StopPlace:62310",
+    "name": "Brusand stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63244",
+    "name": "Brussels Central"
+  },
+  {
+    "id": "NSR:StopPlace:61897",
+    "name": "Bryn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58924",
+    "name": "Bryne stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63617",
+    "name": "Bräcke station"
+  },
+  {
+    "id": "NSR:StopPlace:62351",
+    "name": "Bråstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:584",
+    "name": "Bulken stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63179",
+    "name": "Burlöv station"
+  },
+  {
+    "id": "NSR:StopPlace:58877",
+    "name": "Bø stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62354",
+    "name": "Bøylestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63701",
+    "name": "Bålsta station"
+  },
+  {
+    "id": "NSR:StopPlace:57946",
+    "name": "Bårdshaug stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63802",
+    "name": "Båstad station"
+  },
+  {
+    "id": "NSR:StopPlace:58916",
+    "name": "Charlottenberg station"
+  },
+  {
+    "id": "NSR:StopPlace:59647",
+    "name": "Dal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58926",
+    "name": "Dale stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62337",
+    "name": "Darbu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61305",
+    "name": "Degerfors station"
+  },
+  {
+    "id": "NSR:StopPlace:58816",
+    "name": "Dombås stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59690",
+    "name": "Dovre stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59952",
+    "name": "Drammen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58878",
+    "name": "Drangedal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64117",
+    "name": "Dresden Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:64118",
+    "name": "Dresden Neustadt"
+  },
+  {
+    "id": "NSR:StopPlace:61341",
+    "name": "Drevvatn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58953",
+    "name": "Dunderland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61312",
+    "name": "Duved station"
+  },
+  {
+    "id": "NSR:StopPlace:60131",
+    "name": "Ed station"
+  },
+  {
+    "id": "NSR:StopPlace:62288",
+    "name": "Edane station"
+  },
+  {
+    "id": "NSR:StopPlace:59244",
+    "name": "Egersund stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62335",
+    "name": "Eidsberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58844",
+    "name": "Eidsvoll stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58845",
+    "name": "Eidsvoll verk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58817",
+    "name": "Eina stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:117",
+    "name": "Elverum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61344",
+    "name": "Enafors station"
+  },
+  {
+    "id": "NSR:StopPlace:63705",
+    "name": "Enköping station"
+  },
+  {
+    "id": "NSR:StopPlace:63622",
+    "name": "Erikslund station"
+  },
+  {
+    "id": "NSR:StopPlace:62776",
+    "name": "Eskilstuna Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:64093",
+    "name": "Eslöv station"
+  },
+  {
+    "id": "NSR:StopPlace:59170",
+    "name": "Espeland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:151",
+    "name": "Evanger stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58806",
+    "name": "Evenstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61304",
+    "name": "Fagerås station"
+  },
+  {
+    "id": "NSR:StopPlace:63798",
+    "name": "Falkenberg station"
+  },
+  {
+    "id": "NSR:StopPlace:64244",
+    "name": "Falköping station"
+  },
+  {
+    "id": "NSR:StopPlace:64173",
+    "name": "Falun station"
+  },
+  {
+    "id": "NSR:StopPlace:58931",
+    "name": "Fannrem stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58954",
+    "name": "Fauske stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58846",
+    "name": "Fetsund stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:200",
+    "name": "Finse stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59641",
+    "name": "Fjellhamar stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63108",
+    "name": "Fjällåsen station"
+  },
+  {
+    "id": "NSR:StopPlace:61460",
+    "name": "Flaten stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59304",
+    "name": "Flemingsberg station"
+  },
+  {
+    "id": "NSR:StopPlace:58831",
+    "name": "Flå stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58927",
+    "name": "Flåm stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62338",
+    "name": "Fossum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58794",
+    "name": "Fredrikstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58847",
+    "name": "Frogner stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62355",
+    "name": "Froland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63624",
+    "name": "Fränsta station"
+  },
+  {
+    "id": "NSR:StopPlace:62948",
+    "name": "Fåvang stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64171",
+    "name": "Gamlestaden"
+  },
+  {
+    "id": "NSR:StopPlace:261",
+    "name": "Ganddal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59169",
+    "name": "Garnes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58925",
+    "name": "Gausel stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58832",
+    "name": "Geilo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:311",
+    "name": "Gjerdåker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58889",
+    "name": "Gjerstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:302",
+    "name": "Gjøvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:331",
+    "name": "Glåmos stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63358",
+    "name": "Gnarp station"
+  },
+  {
+    "id": "NSR:StopPlace:58833",
+    "name": "Gol stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58818",
+    "name": "Gran stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59643",
+    "name": "Grefsen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:6",
+    "name": "Greverud stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59687",
+    "name": "Grong stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59620",
+    "name": "Grorud stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58893",
+    "name": "Grovane stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58819",
+    "name": "Grua stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61787",
+    "name": "Gudå stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60735",
+    "name": "Gullhella stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61326",
+    "name": "Gulskogen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57942",
+    "name": "Gundershogget stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59092",
+    "name": "Gyland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61840",
+    "name": "Gällivare station"
+  },
+  {
+    "id": "NSR:StopPlace:63626",
+    "name": "Gällö station"
+  },
+  {
+    "id": "NSR:StopPlace:61850",
+    "name": "Gävle Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:374",
+    "name": "Göteborg Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:60070",
+    "name": "Hafjell stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58848",
+    "name": "Haga stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58849",
+    "name": "Hakadal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60053",
+    "name": "Halden stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:71",
+    "name": "Hallingskeid stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:184",
+    "name": "Hallsberg station"
+  },
+  {
+    "id": "NSR:StopPlace:63189",
+    "name": "Halmstad Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:61388",
+    "name": "Haltdalen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60045",
+    "name": "Hamar stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64111",
+    "name": "Hamburg Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:64112",
+    "name": "Hamburg-Bergedorf"
+  },
+  {
+    "id": "NSR:StopPlace:64113",
+    "name": "Hamburg-Harburg"
+  },
+  {
+    "id": "NSR:StopPlace:41",
+    "name": "Hanaborg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58807",
+    "name": "Hanestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63634",
+    "name": "Haparanda station"
+  },
+  {
+    "id": "NSR:StopPlace:58820",
+    "name": "Harestua stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60900",
+    "name": "Harran stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58850",
+    "name": "Hauerseter stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61295",
+    "name": "Haugastøl stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59653",
+    "name": "Haugenstua stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59171",
+    "name": "Haukeland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59635",
+    "name": "Hauketo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63794",
+    "name": "Hede station"
+  },
+  {
+    "id": "NSR:StopPlace:58851",
+    "name": "Heggedal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58933",
+    "name": "Hegra stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61413",
+    "name": "Heia stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60640",
+    "name": "Heimdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61735",
+    "name": "Hell stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61979",
+    "name": "Hellvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63220",
+    "name": "Helsingborg Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:58821",
+    "name": "Hjerkinn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58834",
+    "name": "Hokksund stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58870",
+    "name": "Holmestrand stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59636",
+    "name": "Holmlia stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63364",
+    "name": "Holmsveden station"
+  },
+  {
+    "id": "NSR:StopPlace:58932",
+    "name": "Hommelvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61314",
+    "name": "Hovin stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61846",
+    "name": "Hudiksvall station"
+  },
+  {
+    "id": "NSR:StopPlace:274",
+    "name": "Hunderfossen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63639",
+    "name": "Husum station"
+  },
+  {
+    "id": "NSR:StopPlace:61464",
+    "name": "Hvalstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63177",
+    "name": "Hyllie station"
+  },
+  {
+    "id": "NSR:StopPlace:63361",
+    "name": "Hällnäs station"
+  },
+  {
+    "id": "NSR:StopPlace:63636",
+    "name": "Härnösand Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:64092",
+    "name": "Hässleholm Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:61303",
+    "name": "Högboda station"
+  },
+  {
+    "id": "NSR:StopPlace:64108",
+    "name": "Høje Taastrup station"
+  },
+  {
+    "id": "NSR:StopPlace:58852",
+    "name": "Høn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60049",
+    "name": "Hønefoss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63629",
+    "name": "Hörnefors station"
+  },
+  {
+    "id": "NSR:StopPlace:59646",
+    "name": "Høvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:313",
+    "name": "Høybråten stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61926",
+    "name": "Håreina stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63367",
+    "name": "Iggesund station"
+  },
+  {
+    "id": "NSR:StopPlace:62340",
+    "name": "Ilseng stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64128",
+    "name": "Innsbruck Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:58823",
+    "name": "Jaren stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64127",
+    "name": "Jenbach"
+  },
+  {
+    "id": "NSR:StopPlace:58963",
+    "name": "Jessheim stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61707",
+    "name": "Jevnaker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61367",
+    "name": "Järpen station"
+  },
+  {
+    "id": "NSR:StopPlace:63370",
+    "name": "Järvsö station"
+  },
+  {
+    "id": "NSR:StopPlace:64179",
+    "name": "Jönköping Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:59375",
+    "name": "Jörn station"
+  },
+  {
+    "id": "NSR:StopPlace:61385",
+    "name": "Jørstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:362",
+    "name": "Jåttåvågen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63652",
+    "name": "Kaitum station"
+  },
+  {
+    "id": "NSR:StopPlace:63650",
+    "name": "Kalix station"
+  },
+  {
+    "id": "NSR:StopPlace:58795",
+    "name": "Kambo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59180",
+    "name": "Karlstad Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:58623",
+    "name": "Katrineholm Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:58610",
+    "name": "Katterat stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62306",
+    "name": "Katterjåkk station"
+  },
+  {
+    "id": "NSR:StopPlace:60132",
+    "name": "Kil station"
+  },
+  {
+    "id": "NSR:StopPlace:63373",
+    "name": "Kilafors station"
+  },
+  {
+    "id": "NSR:StopPlace:64126",
+    "name": "Kirchberg in Tirol"
+  },
+  {
+    "id": "NSR:StopPlace:61838",
+    "name": "Kiruna station"
+  },
+  {
+    "id": "NSR:StopPlace:64125",
+    "name": "Kitzbühel"
+  },
+  {
+    "id": "NSR:StopPlace:59648",
+    "name": "Kjelsås stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:535",
+    "name": "Kjosfossen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59957",
+    "name": "Klepp stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58964",
+    "name": "Kløfta stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57947",
+    "name": "Kløftefoss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62360",
+    "name": "Kløve stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62336",
+    "name": "Knapstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58853",
+    "name": "Kolbotn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64110",
+    "name": "Kolding station"
+  },
+  {
+    "id": "NSR:StopPlace:60603",
+    "name": "Kongsberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58808",
+    "name": "Kongsvinger stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60078",
+    "name": "Kongsvoll stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58809",
+    "name": "Koppang stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62376",
+    "name": "Kopperå stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:566",
+    "name": "Kornsjø stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64131",
+    "name": "Korsør station"
+  },
+  {
+    "id": "NSR:StopPlace:62375",
+    "name": "Kotsøy stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58626",
+    "name": "Kramfors station"
+  },
+  {
+    "id": "NSR:StopPlace:57951",
+    "name": "Kringsjå stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61608",
+    "name": "Kristiansand stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59181",
+    "name": "Kristinehamn station"
+  },
+  {
+    "id": "NSR:StopPlace:61335",
+    "name": "Krokom station"
+  },
+  {
+    "id": "NSR:StopPlace:59165",
+    "name": "Krøderen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60016",
+    "name": "Kråkstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63712",
+    "name": "Kumla station"
+  },
+  {
+    "id": "NSR:StopPlace:63796",
+    "name": "Kungsbacka station"
+  },
+  {
+    "id": "NSR:StopPlace:62349",
+    "name": "Kvam stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62456",
+    "name": "Kvitfjell stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:369",
+    "name": "Kvål stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63182",
+    "name": "Kävlinge station"
+  },
+  {
+    "id": "NSR:StopPlace:63172",
+    "name": "København H"
+  },
+  {
+    "id": "NSR:StopPlace:60320",
+    "name": "København lufthavn"
+  },
+  {
+    "id": "NSR:StopPlace:64109",
+    "name": "København syd station"
+  },
+  {
+    "id": "NSR:StopPlace:63710",
+    "name": "Köping station"
+  },
+  {
+    "id": "NSR:StopPlace:271",
+    "name": "Lademoen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63800",
+    "name": "Laholm station"
+  },
+  {
+    "id": "NSR:StopPlace:63806",
+    "name": "Landskrona station"
+  },
+  {
+    "id": "NSR:StopPlace:58854",
+    "name": "Langhus stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:446",
+    "name": "Langlete stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58930",
+    "name": "Larvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58934",
+    "name": "Lassemoen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:393",
+    "name": "Leangen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58855",
+    "name": "Leirsund stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61821",
+    "name": "Lene station"
+  },
+  {
+    "id": "NSR:StopPlace:400",
+    "name": "Ler stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:469",
+    "name": "Lerkendal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62347",
+    "name": "Lesja stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62348",
+    "name": "Lesjaverk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58935",
+    "name": "Levanger stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58835",
+    "name": "Lier stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62369",
+    "name": "Lilleby stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:420",
+    "name": "Lillehammer stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62339",
+    "name": "Lillestrøm stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62094",
+    "name": "Lindeberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64087",
+    "name": "Linköping Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63963",
+    "name": "Liseberg station"
+  },
+  {
+    "id": "NSR:StopPlace:62309",
+    "name": "Ljan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:439",
+    "name": "Ljosanbotn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63655",
+    "name": "Ljungaverk station"
+  },
+  {
+    "id": "NSR:StopPlace:63715",
+    "name": "Ljusdal station"
+  },
+  {
+    "id": "NSR:StopPlace:63667",
+    "name": "Luleå Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63181",
+    "name": "Lund Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:461",
+    "name": "Lundamo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58879",
+    "name": "Lunde stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61696",
+    "name": "Lunden stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58824",
+    "name": "Lunner stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58856",
+    "name": "Lysaker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59174",
+    "name": "Løkken stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58972",
+    "name": "Lønsdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58857",
+    "name": "Lørenskog stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58810",
+    "name": "Løten stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58651",
+    "name": "Låktatjåkko station"
+  },
+  {
+    "id": "NSR:StopPlace:61456",
+    "name": "Majavatn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58393",
+    "name": "Malmö Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63598",
+    "name": "Malmö Syd Svågertorp"
+  },
+  {
+    "id": "NSR:StopPlace:61169",
+    "name": "Marienborg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:206",
+    "name": "Mariero stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58917",
+    "name": "Marnardal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60047",
+    "name": "Melhus skysstasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63717",
+    "name": "Mellansel station"
+  },
+  {
+    "id": "NSR:StopPlace:61457",
+    "name": "Meråker stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59172",
+    "name": "Midtun stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64132",
+    "name": "Mjölby station"
+  },
+  {
+    "id": "NSR:StopPlace:61458",
+    "name": "Mjølfjell stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58836",
+    "name": "Mjøndalen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59243",
+    "name": "Mo i Rana stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58811",
+    "name": "Moelv stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59658",
+    "name": "Moi stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64174",
+    "name": "Mora station"
+  },
+  {
+    "id": "NSR:StopPlace:58971",
+    "name": "Mosjøen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58796",
+    "name": "Moss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61301",
+    "name": "Movatn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63659",
+    "name": "Murjek station"
+  },
+  {
+    "id": "NSR:StopPlace:64119",
+    "name": "München Ost"
+  },
+  {
+    "id": "NSR:StopPlace:222",
+    "name": "Myrdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59638",
+    "name": "Myrvoll stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58797",
+    "name": "Mysen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59426",
+    "name": "Mæl stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63194",
+    "name": "Mölndal station"
+  },
+  {
+    "id": "NSR:StopPlace:234",
+    "name": "Mørkved stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63657",
+    "name": "Mörsil station"
+  },
+  {
+    "id": "NSR:StopPlace:61462",
+    "name": "Namsskogan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62318",
+    "name": "Narvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58404",
+    "name": "Nationaltheatret"
+  },
+  {
+    "id": "NSR:StopPlace:63665",
+    "name": "Nattavaara station"
+  },
+  {
+    "id": "NSR:StopPlace:58890",
+    "name": "Nelaug stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61315",
+    "name": "Nerdrum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58837",
+    "name": "Nesbyen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58880",
+    "name": "Neslandsvatn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64277",
+    "name": "Neumünster"
+  },
+  {
+    "id": "NSR:StopPlace:291",
+    "name": "Nisterud stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58858",
+    "name": "Nittedal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58918",
+    "name": "Nodeland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58882",
+    "name": "Nordagutu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58859",
+    "name": "Nordby stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60968",
+    "name": "Nordmaling station"
+  },
+  {
+    "id": "NSR:StopPlace:61463",
+    "name": "Nordstrand stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62895",
+    "name": "Nordtangen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64086",
+    "name": "Norrköping Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:61101",
+    "name": "Notodden stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63376",
+    "name": "Notviken station"
+  },
+  {
+    "id": "NSR:StopPlace:59649",
+    "name": "Nydalen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59650",
+    "name": "Nyland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63662",
+    "name": "Nälden station"
+  },
+  {
+    "id": "NSR:StopPlace:61872",
+    "name": "Nærbø stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64088",
+    "name": "Nässjö Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63173",
+    "name": "Nørreport stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63379",
+    "name": "Ockelbo station"
+  },
+  {
+    "id": "NSR:StopPlace:64107",
+    "name": "Odense station"
+  },
+  {
+    "id": "NSR:StopPlace:61334",
+    "name": "Ogna stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:316",
+    "name": "Oppdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58860",
+    "name": "Oppegård stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58822",
+    "name": "Opphus stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58812",
+    "name": "Os stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58211",
+    "name": "Oslo lufthavn"
+  },
+  {
+    "id": "NSR:StopPlace:59872",
+    "name": "Oslo S"
+  },
+  {
+    "id": "NSR:StopPlace:58415",
+    "name": "Oteråga stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:4",
+    "name": "Otta stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61823",
+    "name": "Ottebol station"
+  },
+  {
+    "id": "NSR:StopPlace:64276",
+    "name": "Padborg station"
+  },
+  {
+    "id": "NSR:StopPlace:8",
+    "name": "Paradis stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57952",
+    "name": "Paulen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63669",
+    "name": "Pilgrimstad station"
+  },
+  {
+    "id": "NSR:StopPlace:58966",
+    "name": "Porsgrunn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58798",
+    "name": "Rakkestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63184",
+    "name": "Ramlösa station"
+  },
+  {
+    "id": "NSR:StopPlace:33",
+    "name": "Ranheim stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58825",
+    "name": "Raufoss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62361",
+    "name": "Reimegrend stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58826",
+    "name": "Reinsvoll stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:45",
+    "name": "Reinunga stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61459",
+    "name": "Reitan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:23",
+    "name": "Rena stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63199",
+    "name": "Riksgränsen station"
+  },
+  {
+    "id": "NSR:StopPlace:17",
+    "name": "Ringebu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61465",
+    "name": "Rise stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59427",
+    "name": "Rjukan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58828",
+    "name": "Roa stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58958",
+    "name": "Rognan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61342",
+    "name": "Rognes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58575",
+    "name": "Rombak stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62377",
+    "name": "Ronglan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59637",
+    "name": "Rosenholm stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61665",
+    "name": "Rotvoll stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58799",
+    "name": "Rygge stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64094",
+    "name": "Röjan station"
+  },
+  {
+    "id": "NSR:StopPlace:77",
+    "name": "Røkland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62380",
+    "name": "Røra stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:53",
+    "name": "Røros stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62378",
+    "name": "Røstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58838",
+    "name": "Røyken stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62027",
+    "name": "Røyknes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58800",
+    "name": "Råde stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59642",
+    "name": "Rånåsfoss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:101",
+    "name": "Sagdalen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64120",
+    "name": "Salzburg Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:58871",
+    "name": "Sande stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58872",
+    "name": "Sandefjord stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:702",
+    "name": "Sandnes sentrum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:610",
+    "name": "Sandvika stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58801",
+    "name": "Sarpsborg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:114",
+    "name": "Seimsgrend stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62370",
+    "name": "Selsbakk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61381",
+    "name": "Singsås stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58919",
+    "name": "Sira stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60569",
+    "name": "Sirevåg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63670",
+    "name": "Sjisjka"
+  },
+  {
+    "id": "NSR:StopPlace:144",
+    "name": "Skansen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58813",
+    "name": "Skarnes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58936",
+    "name": "Skatval stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63079",
+    "name": "Skeiane stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60944",
+    "name": "Ski stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58884",
+    "name": "Skien stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:698",
+    "name": "Skiple stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61387",
+    "name": "Skogn stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58961",
+    "name": "Skonseng stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58873",
+    "name": "Skoppum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59789",
+    "name": "Skotbu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64175",
+    "name": "Skövde station"
+  },
+  {
+    "id": "NSR:StopPlace:59651",
+    "name": "Skøyen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62392",
+    "name": "Slependen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60017",
+    "name": "Slitu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57940",
+    "name": "Smutterud stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58920",
+    "name": "Snartemo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57949",
+    "name": "Snarum stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:666",
+    "name": "Snippen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58946",
+    "name": "Snåsa stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58861",
+    "name": "Solbråtan stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59639",
+    "name": "Sonsveien stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62371",
+    "name": "Sparbu stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:60736",
+    "name": "Spikkestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58802",
+    "name": "Spydeberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64122",
+    "name": "St. Johann im Pongau"
+  },
+  {
+    "id": "NSR:StopPlace:64124",
+    "name": "St. Johann in Tirol"
+  },
+  {
+    "id": "NSR:StopPlace:59654",
+    "name": "Stabekk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58827",
+    "name": "Stai stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:708",
+    "name": "Stange stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62295",
+    "name": "Stanghelle stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61291",
+    "name": "Stavanger stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63674",
+    "name": "Stavre station"
+  },
+  {
+    "id": "NSR:StopPlace:58839",
+    "name": "Steinberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58947",
+    "name": "Steinkjer stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62344",
+    "name": "Steinvik stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58948",
+    "name": "Stjørdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62352",
+    "name": "Stoa stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58635",
+    "name": "Stockholm Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:59248",
+    "name": "Stockholm-Arlanda flygplats"
+  },
+  {
+    "id": "NSR:StopPlace:58955",
+    "name": "Stockholms södra station"
+  },
+  {
+    "id": "NSR:StopPlace:58874",
+    "name": "Stokke stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59091",
+    "name": "Storekvina stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59318",
+    "name": "Storlien station"
+  },
+  {
+    "id": "NSR:StopPlace:58829",
+    "name": "Stryken stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58862",
+    "name": "Strømmen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63672",
+    "name": "Stöde station"
+  },
+  {
+    "id": "NSR:StopPlace:60077",
+    "name": "Støren stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63689",
+    "name": "Sunderby sjukhus station"
+  },
+  {
+    "id": "NSR:StopPlace:63676",
+    "name": "Sundsvall Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63678",
+    "name": "Sundsvall västra station"
+  },
+  {
+    "id": "NSR:StopPlace:58863",
+    "name": "Svingen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57945",
+    "name": "Svorkmo stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:57948",
+    "name": "Sysle stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61848",
+    "name": "Söderhamn station"
+  },
+  {
+    "id": "NSR:StopPlace:60392",
+    "name": "Södertälje syd"
+  },
+  {
+    "id": "NSR:StopPlace:58864",
+    "name": "Sørumsand stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59403",
+    "name": "Søsterbekk stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62341",
+    "name": "Tangen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63386",
+    "name": "Timrå station"
+  },
+  {
+    "id": "NSR:StopPlace:58814",
+    "name": "Tolga stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58803",
+    "name": "Tomter stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58875",
+    "name": "Torp stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63680",
+    "name": "Torpshammar station"
+  },
+  {
+    "id": "NSR:StopPlace:60042",
+    "name": "Trengereid stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63178",
+    "name": "Triangeln station"
+  },
+  {
+    "id": "NSR:StopPlace:58960",
+    "name": "Trofors stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61336",
+    "name": "Trollhättan Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:59261",
+    "name": "Trondheim lufthavn"
+  },
+  {
+    "id": "NSR:StopPlace:59977",
+    "name": "Trondheim S"
+  },
+  {
+    "id": "NSR:StopPlace:58885",
+    "name": "Trykkerud stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61544",
+    "name": "Tuen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61134",
+    "name": "Tverlandet stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63390",
+    "name": "Tvärålund station"
+  },
+  {
+    "id": "NSR:StopPlace:699",
+    "name": "Tynset stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58876",
+    "name": "Tønsberg stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59652",
+    "name": "Tøyen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63176",
+    "name": "Tårnby stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58624",
+    "name": "Umeå Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63695",
+    "name": "Umeå Östra station"
+  },
+  {
+    "id": "NSR:StopPlace:61345",
+    "name": "Undersåker station"
+  },
+  {
+    "id": "NSR:StopPlace:63720",
+    "name": "Uppsala Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:349",
+    "name": "Upsete stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61383",
+    "name": "Urdland stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:358",
+    "name": "Ustaoset stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:364",
+    "name": "Vaksdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61466",
+    "name": "Vakås stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63393",
+    "name": "Vallsta station"
+  },
+  {
+    "id": "NSR:StopPlace:372",
+    "name": "Valnesfjord stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63191",
+    "name": "Varberg station"
+  },
+  {
+    "id": "NSR:StopPlace:60271",
+    "name": "Varhaug stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62357",
+    "name": "Varingskollen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63395",
+    "name": "Vassijaure station"
+  },
+  {
+    "id": "NSR:StopPlace:448",
+    "name": "Vatnahalsen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58891",
+    "name": "Vegårshei stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58921",
+    "name": "Vennesla stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58790",
+    "name": "Verdal stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58865",
+    "name": "Vestby stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58840",
+    "name": "Vestfossen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58866",
+    "name": "Vevelstad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:445",
+    "name": "Vieren stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62311",
+    "name": "Vigrestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:429",
+    "name": "Vikersund stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:416",
+    "name": "Vikhammer stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63691",
+    "name": "Vindeln station"
+  },
+  {
+    "id": "NSR:StopPlace:425",
+    "name": "Vinstra stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59958",
+    "name": "Voss stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61368",
+    "name": "Välsviken station"
+  },
+  {
+    "id": "NSR:StopPlace:63693",
+    "name": "Vännäs station"
+  },
+  {
+    "id": "NSR:StopPlace:63687",
+    "name": "Vännäsby station"
+  },
+  {
+    "id": "NSR:StopPlace:61891",
+    "name": "Väse station"
+  },
+  {
+    "id": "NSR:StopPlace:63684",
+    "name": "Västeraspby station"
+  },
+  {
+    "id": "NSR:StopPlace:59393",
+    "name": "Västerås Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:64130",
+    "name": "Wörgl Hauptbahnhof"
+  },
+  {
+    "id": "NSR:StopPlace:462",
+    "name": "Ygre stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:64123",
+    "name": "Zell am See"
+  },
+  {
+    "id": "NSR:StopPlace:63618",
+    "name": "Älvsbyn station"
+  },
+  {
+    "id": "NSR:StopPlace:63804",
+    "name": "Ängelholm station"
+  },
+  {
+    "id": "NSR:StopPlace:61251",
+    "name": "Øksnavadporten stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:59182",
+    "name": "Örebro Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:581",
+    "name": "Örebro södra station"
+  },
+  {
+    "id": "NSR:StopPlace:63175",
+    "name": "Ørestad stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:468",
+    "name": "Ørneberget stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63381",
+    "name": "Örnsköldsvik Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:63387",
+    "name": "Örnsköldsvik Norra station"
+  },
+  {
+    "id": "NSR:StopPlace:63174",
+    "name": "Østerport stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:61372",
+    "name": "Östersund Centralstation"
+  },
+  {
+    "id": "NSR:StopPlace:61302",
+    "name": "Östersund västra station"
+  },
+  {
+    "id": "NSR:StopPlace:60069",
+    "name": "Öxnered station"
+  },
+  {
+    "id": "NSR:StopPlace:474",
+    "name": "Øyeflaten stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58841",
+    "name": "Ål stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62374",
+    "name": "Ålen stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:62287",
+    "name": "Åmotfors station"
+  },
+  {
+    "id": "NSR:StopPlace:59703",
+    "name": "Åndalsnes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58867",
+    "name": "Åneby stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58642",
+    "name": "Ånge station"
+  },
+  {
+    "id": "NSR:StopPlace:61374",
+    "name": "Ånn station"
+  },
+  {
+    "id": "NSR:StopPlace:61375",
+    "name": "Åre station"
+  },
+  {
+    "id": "NSR:StopPlace:58868",
+    "name": "Årnes stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:58869",
+    "name": "Ås stasjon"
+  },
+  {
+    "id": "NSR:StopPlace:63814",
+    "name": "Åsa station"
+  },
+  {
+    "id": "NSR:StopPlace:58950",
+    "name": "Åsen stasjon"
+  }
+]
