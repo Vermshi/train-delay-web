@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-It is "vibe-coded" used Claud and is only intended as a hobby project for educational purposes.
+It is "vibe-coded" using Claud code CLI and is only intended as a hobby project for educational purposes.
 
 ## Environment Setup
 
