@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { BigQuery } from "@google-cloud/bigquery";
+import { Redis } from "@upstash/redis";
 import { readFileSync } from "fs";
 
 export const runtime = "nodejs";
@@ -42,20 +43,14 @@ function getBigQueryClient(customCredentials?: Record<string, unknown>): BigQuer
 const QUERY = `
 WITH base AS (
   SELECT
-    recordedAtTime,
     datedServiceJourneyId,
     lineRef,
-    vehicleMode,
     stopPointName,
     sequenceNr,
     aimedDepartureTime,
     departureTime,
     aimedArrivalTime,
-    arrivalTime,
-    stopCancellation,
-    journeyCancellation,
-    extraCall,
-    extraJourney
+    arrivalTime
   FROM \`ent-data-sharing-ext-prd.realtime_siri_et.realtime_siri_et_last_recorded\`
   WHERE recordedAtTime >= TIMESTAMP(@start_date)
     AND recordedAtTime < TIMESTAMP_ADD(TIMESTAMP(@end_date), INTERVAL 1 DAY)
@@ -182,6 +177,65 @@ function checkRateLimit(ip: string): {
   return { allowed: true, retryAfterSecs: 0 };
 }
 
+// ── Query result cache ────────────────────────────────────────────────────────
+// Uses Upstash Redis when env vars are present (persists across cold starts).
+// Falls back to a globalThis in-memory Map for local dev without Upstash.
+const redis =
+  process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
+    ? new Redis({
+        url: process.env.KV_REST_API_URL,
+        token: process.env.KV_REST_API_TOKEN,
+      })
+    : null;
+
+// In-memory fallback — survives HMR reloads via globalThis
+const _g = globalThis as typeof globalThis & { queryCache?: Map<string, unknown[]> };
+if (!_g.queryCache) _g.queryCache = new Map();
+const memCache = _g.queryCache;
+const MEM_CACHE_MAX = 200;
+
+// TTL: 24 h for recent ranges (data may still arrive), 7 days for older data
+const RECENT_DAYS = 7;
+const TTL_RECENT = 60 * 60 * 24;       // 1 day in seconds
+const TTL_OLD    = 60 * 60 * 24 * 7;   // 7 days in seconds
+
+function getCacheKey(
+  stationA: string,
+  stationB: string,
+  startDate: string,
+  endDate: string,
+  minDelay: number,
+): string {
+  // Normalise station order so A↔B and B↔A share the same cache entry
+  const [s1, s2] = [stationA, stationB].sort();
+  return `tdc:${s1}|${s2}|${startDate}|${endDate}|${minDelay}`;
+}
+
+function getTtl(endDate: string): number {
+  const daysSinceEnd =
+    (Date.now() - new Date(endDate).getTime()) / (1000 * 60 * 60 * 24);
+  return daysSinceEnd < RECENT_DAYS ? TTL_RECENT : TTL_OLD;
+}
+
+async function cacheGet(key: string): Promise<unknown[] | null> {
+  if (redis) {
+    const val = await redis.get<unknown[]>(key);
+    return val ?? null;
+  }
+  return memCache.get(key) ?? null;
+}
+
+async function cacheSet(key: string, rows: unknown[], ttlSecs: number): Promise<void> {
+  if (redis) {
+    await redis.set(key, rows, { ex: ttlSecs });
+    return;
+  }
+  if (memCache.size >= MEM_CACHE_MAX) {
+    memCache.delete(memCache.keys().next().value!);
+  }
+  memCache.set(key, rows);
+}
+
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 export async function POST(request: NextRequest) {
@@ -269,6 +323,12 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  const cacheKey = getCacheKey(stationA, stationB, startDate, endDate, delay);
+  const cached = await cacheGet(cacheKey);
+  if (cached) {
+    return NextResponse.json({ results: cached, count: cached.length, cached: true });
+  }
+
   try {
     const bq = getBigQueryClient(customCredentials);
 
@@ -283,6 +343,8 @@ export async function POST(request: NextRequest) {
       },
       location: "EU",
     });
+
+    await cacheSet(cacheKey, rows, getTtl(endDate));
 
     return NextResponse.json({ results: rows, count: rows.length });
   } catch (err) {

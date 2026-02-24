@@ -252,8 +252,8 @@ export default function SearchForm({
 }: SearchFormProps) {
   const defaultRange = getDateRange("30");
 
-  const [stationA, setStationA] = useState("");
-  const [stationB, setStationB] = useState("");
+  const [stationA, setStationA] = useState("Drammen stasjon");
+  const [stationB, setStationB] = useState("Oslo S");
   const [preset, setPreset] = useState<DatePreset>("30");
   const [startDate, setStartDate] = useState(defaultRange.start);
   const [endDate, setEndDate] = useState(defaultRange.end);
@@ -297,15 +297,15 @@ export default function SearchForm({
     daysDiff <= MAX_DAYS;
 
   const isDirty =
-    stationA !== "" ||
-    stationB !== "" ||
+    stationA !== "Drammen stasjon" ||
+    stationB !== "Oslo S" ||
     preset !== "30" ||
     minDelay !== 30;
 
   function handleReset() {
     const range = getDateRange("30");
-    setStationA("");
-    setStationB("");
+    setStationA("Drammen stasjon");
+    setStationB("Oslo S");
     setPreset("30");
     setStartDate(range.start);
     setEndDate(range.end);
