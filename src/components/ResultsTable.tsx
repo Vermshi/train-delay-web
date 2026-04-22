@@ -45,7 +45,7 @@ function parseDate(dt: string): string {
 
 // "2026-01-20 06:58:00" → "06:58"
 function parseTime(dt: string): string {
-  return dt.slice(11, 16);
+  return dt?.slice(11, 16);
 }
 
 // "2026-01-20" → "20. januar 2026"
