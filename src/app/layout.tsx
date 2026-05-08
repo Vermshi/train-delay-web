@@ -5,26 +5,23 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Forsinkede tog",
-  description:
-    "Historiske togforsinkelser mellom norske stasjoner via Entur BigQuery",
+    title: "Forsinkede tog",
+    description: "Historiske togforsinkelser mellom norske stasjoner via Entur BigQuery",
 };
 
-export default function RootLayout({
-  children,
+export const RootLayout = ({
+    children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
+    children: React.ReactNode;
+}>) => (
     <html lang="nb" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{const t=localStorage.getItem('theme');if(t!=='light')document.documentElement.classList.add('dark')}catch{}`,
-          }}
-        />
-        {children}
-      </body>
+        <body className={`${inter.className} antialiased`}>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `try{const t=localStorage.getItem('theme');if(t!=='light')document.documentElement.classList.add('dark')}catch{}`,
+                }}
+            />
+            {children}
+        </body>
     </html>
-  );
-}
+);

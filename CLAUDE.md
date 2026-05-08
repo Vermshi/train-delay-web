@@ -6,7 +6,6 @@ This file provides guidance to Claude Code when working in this repository.
 
 A Next.js website that lets users query historical train delay data between any two Norwegian stations. Data comes from the Entur public BigQuery dataset (`ent-data-sharing-ext-prd.realtime_siri_et.realtime_siri_et_last_recorded`). Auth uses a GCP service account — either a server-side default (via env var) or a user-supplied one stored in `localStorage`.
 
-
 ## Commands
 
 ```bash
@@ -26,6 +25,7 @@ npx tsx scripts/fetch-stations.ts
 ## Architecture
 
 ### File Structure
+
 ```
 src/
 ├── app/
@@ -48,6 +48,7 @@ scripts/
 ```
 
 ### Data Flow
+
 1. `page.tsx` reads `stations.json` at build time via `readFileSync` (no runtime fetch)
 2. User fills `SearchForm` and submits → `MainContent.handleSearch()` calls `POST /api/search`
 3. If the user has saved custom credentials via `SettingsDialog`, they are read from `localStorage` and sent in the request body as `customCredentials`
@@ -55,6 +56,7 @@ scripts/
 5. `ResultsTable` renders rows with delay badges (yellow <30 min, orange 30–59, red ≥60)
 
 ### Key API Details
+
 - **BigQuery dataset**: `ent-data-sharing-ext-prd.realtime_siri_et.realtime_siri_et_last_recorded`
 - **BigQuery location**: must be `"EU"` — Entur's dataset is EU-region; omitting this causes a location mismatch error
 - **Query parameters**: `@station_a`, `@station_b`, `@start_date`, `@end_date`, `@min_delay` (prevents SQL injection)
@@ -63,7 +65,9 @@ scripts/
 - **Rate limiting**: `POST /api/search` allows 10 requests per IP per hour in production; bypassed in development
 
 ### Custom Credentials Flow
+
 Users can supply their own GCP service account via the settings dialog:
+
 1. User opens `SettingsDialog`, pastes their service account JSON
 2. `POST /api/validate` tests it by running a `SELECT 1 ... LIMIT 1` against the Entur dataset
 3. On success, the JSON is saved to `localStorage` under `customServiceAccount`
@@ -71,10 +75,12 @@ Users can supply their own GCP service account via the settings dialog:
 5. `SettingsButton` shows an amber dot indicator when custom credentials are active
 
 ### Dark Mode
+
 - `layout.tsx` inlines a script that runs before hydration to apply the `dark` class based on `localStorage` or system preference
 - `ThemeToggle` component toggles the class and persists the choice to `localStorage`
 
 ### Vercel Constraints
+
 - `export const maxDuration = 10` on both API routes (free tier limit)
 - BigQuery cold queries on 30 days typically complete in 5–15s
 
@@ -82,13 +88,14 @@ Users can supply their own GCP service account via the settings dialog:
 
 Required in `.env.local` (local) and Vercel dashboard/CLI (production):
 
-| Variable | Description |
-|---|---|
+| Variable                      | Description                                                                                                                                                       |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `GOOGLE_SERVICE_ACCOUNT_JSON` | File path to the service account key JSON (e.g. `./service-account-key.json`), or an inline JSON string. `project_id` is read from the credentials automatically. |
 
 The key file itself (`service-account-key.json`) must be present at the path specified. It is git-ignored — never commit it.
 
 ### GCP Service Account Permissions Needed
+
 - `BigQuery Job User` on the billing project
 - `BigQuery Data Viewer` on Entur's project (`ent-data-sharing-ext-prd`)
 

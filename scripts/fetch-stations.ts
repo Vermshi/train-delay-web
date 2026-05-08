@@ -21,55 +21,58 @@ const QUERY = `
 `;
 
 interface StopPlace {
-  id: string;
-  name: { value: string };
+    id: string;
+    name: { value: string };
 }
 
 interface Station {
-  id: string;
-  name: string;
+    id: string;
+    name: string;
 }
 
 async function fetchStations(): Promise<Station[]> {
-  const response = await fetch(NSR_API, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "ET-Client-Name": "entur-delays-web-fetch-stations",
-    },
-    body: JSON.stringify({ query: QUERY }),
-  });
+    const response = await fetch(NSR_API, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "ET-Client-Name": "entur-delays-web-fetch-stations",
+        },
+        body: JSON.stringify({ query: QUERY }),
+    });
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${await response.text()}`);
-  }
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+    }
 
-  const json = await response.json();
+    const json = await response.json();
 
-  if (json.errors) {
-    throw new Error(`GraphQL errors: ${JSON.stringify(json.errors)}`);
-  }
+    if (json.errors) {
+        throw new Error(`GraphQL errors: ${JSON.stringify(json.errors)}`);
+    }
 
-  const stopPlaces: StopPlace[] = json.data.stopPlace;
+    const stopPlaces: StopPlace[] = json.data.stopPlace;
 
-  return stopPlaces
-    .map((sp) => ({ id: sp.id, name: sp.name.value }))
-    .sort((a, b) => a.name.localeCompare(b.name, "nb"));
+    return stopPlaces
+        .map((sp) => ({ id: sp.id, name: sp.name.value }))
+        .sort((a, b) => a.name.localeCompare(b.name, "nb"));
 }
 
 async function main() {
-  console.log("Fetching rail stations from Entur NSR API...");
+    console.log("Fetching rail stations from Entur NSR API...");
 
-  const stations = await fetchStations();
+    const stations = await fetchStations();
 
-  const outPath = path.join(process.cwd(), "src/data/stations.json");
-  fs.writeFileSync(outPath, JSON.stringify(stations, null, 2), "utf-8");
+    const outPath = path.join(process.cwd(), "src/data/stations.json");
+    fs.writeFileSync(outPath, JSON.stringify(stations, null, 2), "utf-8");
 
-  console.log(`Done! Wrote ${stations.length} stations to ${outPath}`);
-  console.log("Sample:", stations.slice(0, 5).map((s) => s.name));
+    console.log(`Done! Wrote ${stations.length} stations to ${outPath}`);
+    console.log(
+        "Sample:",
+        stations.slice(0, 5).map((s) => s.name)
+    );
 }
 
 main().catch((err) => {
-  console.error("Error:", err);
-  process.exit(1);
+    console.error("Error:", err);
+    process.exit(1);
 });
