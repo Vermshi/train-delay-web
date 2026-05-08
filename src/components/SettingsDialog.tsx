@@ -255,7 +255,7 @@ export default function SettingsDialog({
                     <strong className="text-slate-600 dark:text-slate-300">
                       BigQuery Data Viewer
                     </strong>{" "}
-                    — lar den lese Entur sitt offentlige datasett
+                    — lar kontoen lese den returnerte dataen
                   </li>
                 </ul>
                 <p className="mt-1 text-slate-500 dark:text-slate-400">

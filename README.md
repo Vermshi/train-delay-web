@@ -4,7 +4,7 @@ It is "vibe-coded" using Claud code CLI and is only intended as a hobby project 
 
 ## Environment Setup
 
-Create a `.env.local` file in the project root with the following variable:
+The file `.env.local` file in the project root should already contain the following variable:
 
 ```
 GOOGLE_SERVICE_ACCOUNT_JSON=./service-account-key.json

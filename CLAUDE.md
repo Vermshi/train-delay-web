@@ -6,7 +6,6 @@ This file provides guidance to Claude Code when working in this repository.
 
 A Next.js website that lets users query historical train delay data between any two Norwegian stations. Data comes from the Entur public BigQuery dataset (`ent-data-sharing-ext-prd.realtime_siri_et.realtime_siri_et_last_recorded`). Auth uses a GCP service account — either a server-side default (via env var) or a user-supplied one stored in `localStorage`.
 
-The companion Python script this was built from lives at `~/training/entur-script/main.py` — useful reference for the SQL logic.
 
 ## Commands
 
