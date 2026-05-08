@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: "Historiske togforsinkelser mellom norske stasjoner via Entur BigQuery",
 };
 
-export const RootLayout = ({
+const RootLayout = ({
     children,
 }: Readonly<{
     children: React.ReactNode;
@@ -25,3 +25,5 @@ export const RootLayout = ({
         </body>
     </html>
 );
+
+export default RootLayout;
