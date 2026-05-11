@@ -483,12 +483,12 @@ function ChartDialog({
     );
 }
 
-export default function ResultsTable({
+export const ResultsTable = ({
     results,
     isLoading,
     hasSearched,
     error,
-}: ResultsTableProps) {
+}: ResultsTableProps) => {
     const [dialog, setDialog] = useState<"day" | "hour" | null>(null);
 
     if (isLoading) {

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import SearchForm from "./SearchForm";
-import ResultsTable from "./ResultsTable";
+import { SearchForm } from "./SearchForm";
+import { ResultsTable } from "./ResultsTable";
 
 interface Station {
     id: string;
@@ -34,7 +34,7 @@ interface MainContentProps {
     stations: Station[];
 }
 
-export default function MainContent({ stations }: MainContentProps) {
+export const MainContent = ({ stations }: MainContentProps) => {
     const [results, setResults] = useState<DelayRow[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);

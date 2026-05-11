@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
 import path from "path";
 import Image from "next/image";
-import MainContent from "@/components/MainContent";
-import ThemeToggle from "@/components/ThemeToggle";
-import SettingsButton from "@/components/SettingsButton";
+import { MainContent } from "@/components/MainContent";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { SettingsButton } from "@/components/SettingsButton";
 
 interface Station {
     id: string;
@@ -20,7 +20,7 @@ function loadStations(): Station[] {
     }
 }
 
-export default function Home() {
+const Home = () => {
     const stations = loadStations();
 
     return (
@@ -68,4 +68,6 @@ export default function Home() {
             </main>
         </div>
     );
-}
+};
+
+export default Home;

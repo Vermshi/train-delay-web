@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import SettingsDialog from "./SettingsDialog";
+import { SettingsDialog } from "./SettingsDialog";
 
 interface SettingsButtonProps {
     onCredentialChange?: () => void;
 }
 
-export default function SettingsButton({ onCredentialChange }: SettingsButtonProps) {
+export const SettingsButton = ({ onCredentialChange }: SettingsButtonProps) => {
     const [hasCustom, setHasCustom] = useState(false);
     const [dialogOpen, setDialogOpen] = useState(false);
 

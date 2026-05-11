@@ -9,7 +9,7 @@ interface SettingsDialogProps {
 
 type Status = "idle" | "checking" | "valid" | "invalid";
 
-export default function SettingsDialog({ onClose, onCredentialChange }: SettingsDialogProps) {
+export const SettingsDialog = ({ onClose, onCredentialChange }: SettingsDialogProps) => {
     const [json, setJson] = useState("");
     const [status, setStatus] = useState<Status>("idle");
     const [errorMsg, setErrorMsg] = useState("");

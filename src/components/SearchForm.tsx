@@ -256,7 +256,7 @@ function StationCombobox({
 
 // ── SearchForm ────────────────────────────────────────────────────────────────
 
-export default function SearchForm({ stations, onSearch, isLoading }: SearchFormProps) {
+export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) => {
     const defaultRange = getDateRange("30");
 
     const [stationA, setStationA] = useState("Drammen stasjon");

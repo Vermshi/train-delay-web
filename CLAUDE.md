@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code when working in this repository.
 
+## Code Style
+
+- Components are defined as `const` arrow functions with named exports: `export const Foo = () => { ... };`
+- Always use named imports: `import { Foo } from "./Foo"` — never default imports
+
 ## Project Overview
 
 A Next.js website that lets users query historical train delay data between any two Norwegian stations. Data comes from the Entur public BigQuery dataset (`ent-data-sharing-ext-prd.realtime_siri_et.realtime_siri_et_last_recorded`). Auth uses a GCP service account — either a server-side default (via env var) or a user-supplied one stored in `localStorage`.
