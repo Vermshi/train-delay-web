@@ -35,7 +35,7 @@ async function fetchStations(): Promise<Station[]> {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "ET-Client-Name": "entur-delays-web-fetch-stations",
+            "ET-Client-Name": "private-togforsinkelser",
         },
         body: JSON.stringify({ query: QUERY }),
     });

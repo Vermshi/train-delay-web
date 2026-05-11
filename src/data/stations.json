@@ -840,6 +840,10 @@
         "name": "Narvik stasjon"
     },
     {
+        "id": "NSR:StopPlace:58404",
+        "name": "Nationaltheatret stasjon"
+    },
+    {
         "id": "NSR:StopPlace:58890",
         "name": "Nelaug stasjon"
     },
