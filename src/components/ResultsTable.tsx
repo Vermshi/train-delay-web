@@ -17,11 +17,18 @@ interface DelayRow {
     datedServiceJourneyId: string;
 }
 
+interface Station {
+    id: string;
+    name: string;
+}
+
 interface ResultsTableProps {
     results: DelayRow[];
     isLoading: boolean;
     hasSearched: boolean;
     error: string | null;
+    ticketNumber: string;
+    stations: Station[];
 }
 
 // "VYG:Line:R13" → "R13"
@@ -346,13 +353,39 @@ function ChartDialog({
     );
 }
 
+function buildRefundUrl(
+    row: DelayRow,
+    ticketNumber: string,
+    stationMap: Map<string, string>,
+): string {
+    const params = new URLSearchParams({
+        step: "2",
+        "orderInfo.ticketType": "SEASON_TICKET",
+        "orderInfo.operator": "Vy_Tog",
+        "manualJourneyInfo.departureStation.stationName": row.origin,
+        "manualJourneyInfo.departureStation.nsrCode": stationMap.get(row.origin) ?? "",
+        "manualJourneyInfo.arrivalStation.stationName": row.destination,
+        "manualJourneyInfo.arrivalStation.nsrCode": stationMap.get(row.destination) ?? "",
+        "manualJourneyInfo.date": parseDate(row.planned_dep_origin),
+        "manualJourneyInfo.time": parseTime(row.planned_dep_origin),
+    });
+    if (ticketNumber) {
+        params.set("ticketInputType", "REFERENCE_CODE");
+        params.set("referenceCode", ticketNumber);
+    }
+    return `https://www.vy.no/kundeservice/skjema/prisavslag-og-erstatning?${params.toString()}`;
+}
+
 export const ResultsTable = ({
     results,
     isLoading,
     hasSearched,
     error,
+    ticketNumber,
+    stations,
 }: ResultsTableProps) => {
     const [dialog, setDialog] = useState<"day" | "hour" | null>(null);
+    const stationMap = new Map(stations.map((s) => [s.name, s.id]));
 
     if (isLoading) {
         return <TrainLoader />;
@@ -454,7 +487,7 @@ export const ResultsTable = ({
                 <table className="min-w-full divide-y divide-havvind-200 dark:divide-havvind-700 text-sm">
                     <thead className="bg-havvind-100 dark:bg-havvind-800/50">
                         <tr>
-                            {["Linje", "Retning", "Avgang", "Ankomst", "Forsinkelse"].map((h) => (
+                            {["Linje", "Retning", "Avgang", "Ankomst", "Forsinkelse", ""].map((h) => (
                                 <th
                                     key={h}
                                     className="px-4 py-3 text-left font-semibold text-havvind-700 dark:text-havvind-200 whitespace-nowrap"
@@ -507,6 +540,16 @@ export const ResultsTable = ({
                                         </td>
                                         <td className="px-4 py-3 whitespace-nowrap">
                                             <DelayBadge minutes={row.forsinkelse_minutter} />
+                                        </td>
+                                        <td className="px-4 py-3 whitespace-nowrap">
+                                            <a
+                                                href={buildRefundUrl(row, ticketNumber, stationMap)}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center rounded-md border border-havvind-200 bg-havvind-50 px-2.5 py-1 text-xs font-medium text-havvind-600 hover:bg-havvind-100 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-colors"
+                                            >
+                                                Refusjon →
+                                            </a>
                                         </td>
                                     </tr>
                                 ))}

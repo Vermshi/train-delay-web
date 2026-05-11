@@ -19,6 +19,8 @@ interface SearchFormProps {
     stations: Station[];
     onSearch: (params: SearchParams) => void;
     isLoading: boolean;
+    ticketNumber: string;
+    onTicketNumberChange: (value: string) => void;
 }
 
 type DatePreset = "30" | "90" | "180" | "custom";
@@ -256,7 +258,7 @@ function StationCombobox({
 
 // ── SearchForm ────────────────────────────────────────────────────────────────
 
-export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) => {
+export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTicketNumberChange }: SearchFormProps) => {
     const defaultRange = getDateRange("30");
 
     const [stationA, setStationA] = useState("Drammen stasjon");
@@ -456,6 +458,24 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                     <span>5 min</span>
                     <span>120 min</span>
                 </div>
+            </div>
+
+            {/* Ticket number */}
+            <div>
+                <label className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-1">
+                    Referansekode{" "}
+                    <span className="font-normal text-havvind-400 dark:text-havvind-500">
+                        (valgfri — for refusjonsskjema)
+                    </span>
+                </label>
+                <input
+                    type="text"
+                    value={ticketNumber}
+                    onChange={(e) => onTicketNumberChange(e.target.value)}
+                    placeholder="F.eks. SKK-AAO-TLH"
+                    className={inputCls}
+                    spellCheck={false}
+                />
             </div>
 
             <div className="flex gap-3">

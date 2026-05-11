@@ -43,9 +43,11 @@ export const MainContent = ({ stations }: MainContentProps) => {
     const [customCredentials, setCustomCredentials] = useState<Record<string, unknown> | null>(
         null
     );
+    const [ticketNumber, setTicketNumber] = useState("");
 
     useEffect(() => {
         readCredentialsFromStorage();
+        setTicketNumber(localStorage.getItem("ticketNumber") ?? "");
 
         function onStorageChange(e: StorageEvent) {
             if (e.key === "customServiceAccount") {
@@ -69,10 +71,18 @@ export const MainContent = ({ stations }: MainContentProps) => {
         }
     }
 
+    function handleTicketNumberChange(value: string) {
+        setTicketNumber(value);
+        if (value) {
+            localStorage.setItem("ticketNumber", value);
+        } else {
+            localStorage.removeItem("ticketNumber");
+        }
+    }
+
     function handleResetCredentials() {
         localStorage.removeItem("customServiceAccount");
         readCredentialsFromStorage();
-        // Dispatch storage event so SettingsButton updates its indicator
         window.dispatchEvent(new StorageEvent("storage", { key: "customServiceAccount" }));
     }
 
@@ -128,7 +138,13 @@ export const MainContent = ({ stations }: MainContentProps) => {
             )}
 
             <div className="rounded-xl border border-havvind-200 dark:border-havvind-700 bg-havvind-50 dark:bg-havvind-900 p-6 shadow-sm">
-                <SearchForm stations={stations} onSearch={handleSearch} isLoading={isLoading} />
+                <SearchForm
+                    stations={stations}
+                    onSearch={handleSearch}
+                    isLoading={isLoading}
+                    ticketNumber={ticketNumber}
+                    onTicketNumberChange={handleTicketNumberChange}
+                />
             </div>
 
             <div className="rounded-xl border border-havvind-200 dark:border-havvind-700 bg-havvind-50 dark:bg-havvind-900 p-6 shadow-sm">
@@ -141,9 +157,11 @@ export const MainContent = ({ stations }: MainContentProps) => {
                         isLoading={isLoading}
                         hasSearched={hasSearched}
                         error={error}
+                        ticketNumber={ticketNumber}
+                        stations={stations}
                     />
                 </div>
             </div>
         </div>
     );
-}
+};
