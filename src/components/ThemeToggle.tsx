@@ -20,7 +20,7 @@ export const ThemeToggle = () => {
         <button
             onClick={toggle}
             aria-label={dark ? "Bytt til lyst modus" : "Bytt til mørkt modus"}
-            className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200 transition-colors"
+            className="rounded-lg p-2 text-havvind-500 hover:bg-havvind-100 hover:text-havvind-700 dark:text-havvind-400 dark:hover:bg-havvind-700 dark:hover:text-havvind-200 transition-all hover:scale-110"
         >
             {dark ? (
                 <svg

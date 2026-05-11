@@ -45,7 +45,7 @@ function getDateRange(preset: DatePreset): { start: string; end: string } {
 }
 
 const inputCls =
-    "w-full rounded-md border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100 dark:placeholder-slate-300 dark:focus:border-indigo-400 dark:focus:ring-indigo-400 transition-all";
+    "w-full rounded-md border border-havvind-300 bg-havvind-25 px-3 py-2.5 text-sm text-havvind-950 shadow-sm placeholder-havvind-500 focus:border-havvind-600 focus:outline-none focus:ring-1 focus:ring-havvind-600 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-100 dark:placeholder-havvind-300 dark:focus:border-havvind-400 dark:focus:ring-havvind-400 transition-all";
 
 // ── Combobox ──────────────────────────────────────────────────────────────────
 
@@ -153,7 +153,7 @@ function StationCombobox({
         <div ref={containerRef} className="relative">
             <label
                 htmlFor={inputId}
-                className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-1"
+                className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-1"
             >
                 {label}
             </label>
@@ -187,7 +187,7 @@ function StationCombobox({
                             setQuery("");
                             setOpen(false);
                         }}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:text-slate-500 dark:hover:text-slate-200 dark:hover:bg-slate-600 transition-all cursor-pointer"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-5 rounded-full text-havvind-400 hover:text-havvind-700 hover:bg-havvind-100 dark:text-havvind-500 dark:hover:text-havvind-200 dark:hover:bg-havvind-600 transition-all cursor-pointer"
                         style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both" }}
                     >
                         <svg
@@ -213,7 +213,7 @@ function StationCombobox({
                     id={listboxId}
                     ref={listRef}
                     role="listbox"
-                    className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border border-slate-200 bg-white py-1 text-sm shadow-lg dark:border-slate-600 dark:bg-slate-800"
+                    className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border border-havvind-200 bg-havvind-50 py-1 text-sm shadow-lg dark:border-havvind-600 dark:bg-havvind-800"
                     style={{
                         animation: "dropdown-in 0.15s ease-out both",
                         transformOrigin: "top",
@@ -230,10 +230,10 @@ function StationCombobox({
                             }}
                             className={`cursor-pointer px-3 py-2 transition-colors ${
                                 i === activeIndex
-                                    ? "bg-indigo-600 text-white"
+                                    ? "bg-havvind-800 text-white"
                                     : s.name === value
-                                      ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300"
-                                      : "text-slate-800 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"
+                                      ? "bg-havvind-100 text-havvind-700 dark:bg-havvind-900/40 dark:text-havvind-300"
+                                      : "text-havvind-800 hover:bg-havvind-100 dark:text-havvind-200 dark:hover:bg-havvind-700"
                             }`}
                         >
                             {s.name}
@@ -244,7 +244,7 @@ function StationCombobox({
 
             {open && query.trim().length > 0 && filtered.length === 0 && (
                 <div
-                    className="absolute z-50 mt-1 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm text-slate-500 shadow-lg dark:border-slate-600 dark:bg-slate-800 dark:text-slate-400"
+                    className="absolute z-50 mt-1 w-full rounded-md border border-havvind-200 bg-havvind-50 px-3 py-2 text-sm text-havvind-500 shadow-lg dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-400"
                     style={{ animation: "dropdown-in 0.15s ease-out both", transformOrigin: "top" }}
                 >
                     Ingen stasjoner funnet
@@ -356,7 +356,7 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
 
             {/* Date presets */}
             <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-2">
                     Periode
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -367,8 +367,8 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                             onClick={() => handlePresetChange(p)}
                             className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-150 hover:-translate-y-0.5 hover:shadow-md active:scale-90 active:translate-y-0 ${
                                 preset === p
-                                    ? "bg-indigo-600 text-white dark:bg-indigo-500 scale-[1.03] shadow-sm shadow-indigo-200 dark:shadow-indigo-900"
-                                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+                                    ? "bg-havvind-900 text-white dark:bg-havvind-800 scale-[1.03] shadow-sm shadow-havvind-200 dark:shadow-havvind-900"
+                                    : "bg-havvind-100 text-havvind-700 hover:bg-havvind-200 dark:bg-havvind-800 dark:text-havvind-200 dark:hover:bg-havvind-700"
                             }`}
                         >
                             {p === "30"
@@ -388,7 +388,7 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                         style={{ animation: "slide-down 0.2s ease-out both" }}
                     >
                         <div>
-                            <label className="block text-xs text-slate-500 dark:text-slate-400 mb-1">
+                            <label className="block text-xs text-havvind-500 dark:text-havvind-400 mb-1">
                                 Fra dato
                             </label>
                             <input
@@ -401,7 +401,7 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                             />
                         </div>
                         <div>
-                            <label className="block text-xs text-slate-500 dark:text-slate-400 mb-1">
+                            <label className="block text-xs text-havvind-500 dark:text-havvind-400 mb-1">
                                 Til dato
                             </label>
                             <input
@@ -431,11 +431,11 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
 
             {/* Delay slider */}
             <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-1">
                     Minimum forsinkelse:{" "}
                     <span
                         key={minDelay}
-                        className="font-semibold text-indigo-600 dark:text-indigo-400 inline-block"
+                        className="font-semibold text-havvind-800 dark:text-havvind-400 inline-block"
                         style={{
                             animation: "value-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
                         }}
@@ -450,9 +450,9 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                     step={5}
                     value={minDelay}
                     onChange={(e) => setMinDelay(Number(e.target.value))}
-                    className="w-full accent-indigo-600 dark:accent-indigo-400 transition-all cursor-pointer"
+                    className="w-full accent-havvind-800 dark:accent-havvind-400 transition-all cursor-pointer"
                 />
-                <div className="flex justify-between text-xs text-slate-400 dark:text-slate-500 mt-1">
+                <div className="flex justify-between text-xs text-havvind-400 dark:text-havvind-500 mt-1">
                     <span>5 min</span>
                     <span>120 min</span>
                 </div>
@@ -462,7 +462,7 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                 <button
                     type="submit"
                     disabled={!isValid || isLoading}
-                    className="flex-1 rounded-lg bg-indigo-600 px-4 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-indigo-700 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-offset-slate-800 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
+                    className="flex-1 rounded-lg bg-havvind-900 px-4 py-3.5 text-base font-semibold text-white shadow-sm hover:bg-havvind-950 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.97] active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-havvind-600 focus:ring-offset-2 dark:bg-havvind-800 dark:hover:bg-havvind-700 dark:focus:ring-offset-havvind-900 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
                     style={
                         isValid && !isLoading
                             ? { animation: "glow-pulse 2.5s ease-in-out infinite" }
@@ -475,7 +475,7 @@ export const SearchForm = ({ stations, onSearch, isLoading }: SearchFormProps) =
                     <button
                         type="button"
                         onClick={handleReset}
-                        className="rounded-lg border border-slate-300 bg-white px-4 py-3.5 text-base font-semibold text-slate-600 shadow-sm hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.97] active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 dark:focus:ring-offset-slate-800 transition-all"
+                        className="rounded-lg border border-havvind-300 bg-havvind-50 px-4 py-3.5 text-base font-semibold text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-[0.97] active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-havvind-400 focus:ring-offset-2 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 dark:focus:ring-offset-havvind-900 transition-all"
                         style={{ animation: "pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both" }}
                     >
                         Nullstill

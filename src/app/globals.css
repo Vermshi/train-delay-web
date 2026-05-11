@@ -125,12 +125,12 @@
     100% {
         box-shadow:
             0 1px 3px 0 rgb(0 0 0 / 0.1),
-            0 0 0 0 rgb(99 102 241 / 0.3);
+            0 0 0 0 rgb(88 122 140 / 0.3);
     }
     50% {
         box-shadow:
             0 1px 3px 0 rgb(0 0 0 / 0.1),
-            0 0 20px 5px rgb(99 102 241 / 0.18);
+            0 0 20px 5px rgb(88 122 140 / 0.18);
     }
 }
 
@@ -223,8 +223,8 @@
 
 /* ── Placeholder contrast ───────────────────────────────────────────────────── */
 input::placeholder {
-    color: #64748b; /* slate-500 */
+    color: #6f8fa2; /* havvind-500 */
 }
 .dark input::placeholder {
-    color: #cbd5e1; /* slate-300 */
+    color: #afc0cd; /* havvind-300 */
 }

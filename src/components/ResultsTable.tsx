@@ -94,14 +94,14 @@ function TrainLoader() {
                             width={16}
                             height={6}
                             rx={1}
-                            fill="#94a3b8"
+                            fill="#afc0cd"
                         />
                     ))}
                 </g>
 
                 {/* Rails */}
-                <rect x={0} y={100} width={320} height={3} rx={1} fill="#64748b" />
-                <rect x={0} y={107} width={320} height={3} rx={1} fill="#64748b" />
+                <rect x={0} y={100} width={320} height={3} rx={1} fill="#587a8c" />
+                <rect x={0} y={107} width={320} height={3} rx={1} fill="#587a8c" />
 
                 {/* Speed lines — outside bob group so they stay level */}
                 {speedLines.map(({ x, y, w, h, delay }, i) => (
@@ -112,7 +112,7 @@ function TrainLoader() {
                         width={w}
                         height={h}
                         rx={h / 2}
-                        fill="#a5b4fc"
+                        fill="#8fa5b5"
                         style={{
                             animation: `speed-line-flash 0.5s ease-in-out ${delay} infinite`,
                         }}
@@ -128,7 +128,7 @@ function TrainLoader() {
                             cx={cx}
                             cy={cy}
                             r={r}
-                            fill="#94a3b8"
+                            fill="#afc0cd"
                             style={{
                                 opacity: 0,
                                 animation: `smoke-float 1s ease-out ${delay} infinite`,
@@ -137,27 +137,27 @@ function TrainLoader() {
                     ))}
 
                     {/* Undercarriage — spans full train length */}
-                    <rect x={24} y={83} width={238} height={8} rx={3} fill="#3730a3" />
+                    <rect x={24} y={83} width={238} height={8} rx={3} fill="#2c4050" />
 
                     {/* ── LOCOMOTIVE (left / front) ── */}
 
                     {/* Boiler body — taller than passenger car */}
-                    <rect x={30} y={38} width={95} height={47} rx={5} fill="#4338ca" />
+                    <rect x={30} y={38} width={95} height={47} rx={5} fill="#3e5a6c" />
                     {/* Boiler accent stripe */}
-                    <rect x={30} y={79} width={95} height={4} fill="#3730a3" />
+                    <rect x={30} y={79} width={95} height={4} fill="#2c4050" />
 
                     {/* Steam dome on boiler */}
-                    <ellipse cx={80} cy={38} rx={14} ry={7} fill="#3730a3" />
+                    <ellipse cx={80} cy={38} rx={14} ry={7} fill="#2c4050" />
 
                     {/* Chimney pipe — front portion of boiler */}
-                    <rect x={50} y={18} width={10} height={22} rx={2} fill="#1e1b4b" />
+                    <rect x={50} y={18} width={10} height={22} rx={2} fill="#1a2e3a" />
                     {/* Chimney flared top */}
-                    <rect x={47} y={14} width={16} height={6} rx={2} fill="#1e1b4b" />
+                    <rect x={47} y={14} width={16} height={6} rx={2} fill="#1a2e3a" />
 
                     {/* Cab — rear of locomotive */}
-                    <rect x={105} y={42} width={28} height={43} rx={3} fill="#4f46e5" />
+                    <rect x={105} y={42} width={28} height={43} rx={3} fill="#466070" />
                     {/* Cab accent stripe */}
-                    <rect x={105} y={79} width={28} height={4} fill="#3730a3" />
+                    <rect x={105} y={79} width={28} height={4} fill="#2c4050" />
                     {/* Cab windows */}
                     <rect
                         x={108}
@@ -182,7 +182,7 @@ function TrainLoader() {
                     <rect x={122} y={50} width={4} height={3} rx={1} fill="white" opacity={0.5} />
 
                     {/* Nose plate — left edge */}
-                    <rect x={24} y={40} width={9} height={45} rx={3} fill="#3730a3" />
+                    <rect x={24} y={40} width={9} height={45} rx={3} fill="#2c4050" />
 
                     {/* Headlight glow */}
                     <circle
@@ -204,13 +204,13 @@ function TrainLoader() {
                     />
 
                     {/* Front coupler */}
-                    <rect x={12} y={76} width={13} height={6} rx={2} fill="#6366f1" />
+                    <rect x={12} y={76} width={13} height={6} rx={2} fill="#587a8c" />
 
                     {/* ── PASSENGER CAR (right / rear) ── */}
 
-                    <rect x={140} y={50} width={118} height={35} rx={5} fill="#4f46e5" />
+                    <rect x={140} y={50} width={118} height={35} rx={5} fill="#466070" />
                     {/* Passenger car accent stripe */}
-                    <rect x={140} y={79} width={118} height={4} fill="#4338ca" />
+                    <rect x={140} y={79} width={118} height={4} fill="#3e5a6c" />
                     {/* Passenger windows */}
                     {[150, 172, 194, 216].map((x) => (
                         <g key={x}>
@@ -235,7 +235,7 @@ function TrainLoader() {
                         </g>
                     ))}
                     {/* Rear coupler */}
-                    <rect x={257} y={76} width={13} height={6} rx={2} fill="#6366f1" />
+                    <rect x={257} y={76} width={13} height={6} rx={2} fill="#587a8c" />
 
                     {/* ── WHEELS ── */}
                     {[50, 90, 155, 200, 240].map((cx) => (
@@ -247,14 +247,14 @@ function TrainLoader() {
                                 animation: "wheel-spin 0.6s linear infinite",
                             }}
                         >
-                            <circle cx={cx} cy={97} r={10} fill="#1e293b" />
-                            <circle cx={cx} cy={97} r={6.5} fill="#334155" />
+                            <circle cx={cx} cy={97} r={10} fill="#2c4050" />
+                            <circle cx={cx} cy={97} r={6.5} fill="#3e5a6c" />
                             <line
                                 x1={cx - 6}
                                 y1={97}
                                 x2={cx + 6}
                                 y2={97}
-                                stroke="#818cf8"
+                                stroke="#6f8fa2"
                                 strokeWidth={1.5}
                             />
                             <line
@@ -262,7 +262,7 @@ function TrainLoader() {
                                 y1={91}
                                 x2={cx}
                                 y2={103}
-                                stroke="#818cf8"
+                                stroke="#6f8fa2"
                                 strokeWidth={1.5}
                             />
                             <line
@@ -270,7 +270,7 @@ function TrainLoader() {
                                 y1={93}
                                 x2={cx + 4}
                                 y2={101}
-                                stroke="#818cf8"
+                                stroke="#6f8fa2"
                                 strokeWidth={1}
                             />
                             <line
@@ -278,10 +278,10 @@ function TrainLoader() {
                                 y1={93}
                                 x2={cx - 4}
                                 y2={101}
-                                stroke="#818cf8"
+                                stroke="#6f8fa2"
                                 strokeWidth={1}
                             />
-                            <circle cx={cx} cy={97} r={2.5} fill="#c7d2fe" />
+                            <circle cx={cx} cy={97} r={2.5} fill="#afc0cd" />
                         </g>
                     ))}
 
@@ -304,10 +304,10 @@ function TrainLoader() {
             </svg>
 
             <div className="text-center">
-                <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                <p className="text-sm font-semibold text-havvind-700 dark:text-havvind-200">
                     Spør BigQuery...
                 </p>
-                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                <p className="mt-1 text-xs text-havvind-500 dark:text-havvind-400">
                     Dette kan ta opptil 30 sekunder
                 </p>
             </div>
@@ -318,7 +318,7 @@ function TrainLoader() {
 function LineBadge({ tog }: { tog: string }) {
     const line = parseLine(tog);
     return (
-        <span className="inline-flex items-center rounded-md bg-indigo-50 border border-indigo-200 px-2 py-0.5 text-xs font-bold font-mono text-indigo-700 dark:bg-indigo-900/40 dark:border-indigo-700 dark:text-indigo-300">
+        <span className="inline-flex items-center rounded-md bg-havvind-50 border border-havvind-200 px-2 py-0.5 text-xs font-bold font-mono text-havvind-700 dark:bg-havvind-900/40 dark:border-havvind-700 dark:text-havvind-300">
             {line}
         </span>
     );
@@ -350,9 +350,9 @@ function TimeCell({ planned, actual }: { planned: string; actual: string }) {
     const at = parseTime(actual);
     return (
         <span className="inline-flex items-center gap-1 font-mono text-xs">
-            <span className="text-slate-400 dark:text-slate-500">{pt}</span>
-            <span className="text-slate-400 dark:text-slate-500">→</span>
-            <span className="font-semibold text-slate-800 dark:text-slate-100">{at}</span>
+            <span className="text-havvind-400 dark:text-havvind-500">{pt}</span>
+            <span className="text-havvind-400 dark:text-havvind-500">→</span>
+            <span className="font-semibold text-havvind-800 dark:text-havvind-100">{at}</span>
         </span>
     );
 }
@@ -408,17 +408,17 @@ function ChartDialog({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
             <div
-                className="relative w-full max-w-2xl rounded-xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-800"
+                className="relative w-full max-w-2xl rounded-xl border border-havvind-200 bg-havvind-50 p-6 shadow-2xl dark:border-havvind-700 dark:bg-havvind-900"
                 style={{ animation: "section-enter 0.2s ease-out both" }}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex items-center justify-between mb-5">
-                    <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">
+                    <h2 className="text-base font-semibold text-havvind-800 dark:text-havvind-100">
                         {title}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="flex items-center justify-center w-7 h-7 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 dark:text-slate-500 dark:hover:text-slate-200 dark:hover:bg-slate-700 transition-all"
+                        className="flex items-center justify-center w-7 h-7 rounded-full text-havvind-400 hover:text-havvind-700 hover:bg-havvind-100 dark:text-havvind-500 dark:hover:text-havvind-200 dark:hover:bg-havvind-700 transition-all"
                     >
                         <svg
                             width="12"
@@ -440,12 +440,12 @@ function ChartDialog({
                     <BarChart data={data} margin={{ top: 4, right: 8, left: -16, bottom: 4 }}>
                         <CartesianGrid
                             strokeDasharray="3 3"
-                            stroke="#e2e8f0"
-                            className="dark:[&>line]:stroke-slate-700"
+                            stroke="#d0dde6"
+                            className="dark:[&>line]:stroke-havvind-700"
                         />
                         <XAxis
                             dataKey="label"
-                            tick={{ fontSize: 11, fill: "#94a3b8" }}
+                            tick={{ fontSize: 11, fill: "#afc0cd" }}
                             axisLine={false}
                             tickLine={false}
                             label={{
@@ -453,28 +453,28 @@ function ChartDialog({
                                 position: "insideBottom",
                                 offset: -2,
                                 fontSize: 11,
-                                fill: "#94a3b8",
+                                fill: "#afc0cd",
                             }}
                         />
                         <YAxis
                             allowDecimals={false}
-                            tick={{ fontSize: 11, fill: "#94a3b8" }}
+                            tick={{ fontSize: 11, fill: "#afc0cd" }}
                             axisLine={false}
                             tickLine={false}
                         />
                         <Tooltip
                             contentStyle={{
-                                background: "var(--tooltip-bg, #1e293b)",
+                                background: "var(--tooltip-bg, #2c4050)",
                                 border: "none",
                                 borderRadius: 8,
                                 fontSize: 12,
                                 color: "#f1f5f9",
                             }}
-                            cursor={{ fill: "rgba(99,102,241,0.08)" }}
+                            cursor={{ fill: "rgba(88,122,140,0.12)" }}
                             formatter={(v: number | undefined) => [v ?? 0, "Forsinkelser"]}
                             labelFormatter={(l) => `${xLabel === "Time" ? `Kl. ${l}` : l}`}
                         />
-                        <Bar dataKey="count" fill="#6366f1" radius={[4, 4, 0, 0]} maxBarSize={40} />
+                        <Bar dataKey="count" fill="#587a8c" radius={[4, 4, 0, 0]} maxBarSize={40} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>
@@ -511,7 +511,7 @@ export const ResultsTable = ({
 
     if (!hasSearched) {
         return (
-            <div className="py-12 text-center text-sm text-slate-500 dark:text-slate-400">
+            <div className="py-12 text-center text-sm text-havvind-500 dark:text-havvind-400">
                 Velg stasjoner og trykk Søk for å se resultater.
             </div>
         );
@@ -520,7 +520,7 @@ export const ResultsTable = ({
     if (results.length === 0) {
         return (
             <div
-                className="py-12 text-center text-sm text-slate-500 dark:text-slate-400"
+                className="py-12 text-center text-sm text-havvind-500 dark:text-havvind-400"
                 style={{ animation: "section-enter 0.4s ease-out both" }}
             >
                 Ingen forsinkede tog funnet for det valgte søket.
@@ -546,7 +546,7 @@ export const ResultsTable = ({
         <div className="space-y-3" style={{ animation: "section-enter 0.4s ease-out both" }}>
             <div className="flex items-center justify-between">
                 <p
-                    className="text-sm text-slate-600 dark:text-slate-300"
+                    className="text-sm text-havvind-600 dark:text-havvind-300"
                     style={{
                         animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
                     }}
@@ -556,7 +556,7 @@ export const ResultsTable = ({
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => setDialog("day")}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 transition-all"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all"
                         style={{
                             animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both",
                         }}
@@ -566,7 +566,7 @@ export const ResultsTable = ({
                     </button>
                     <button
                         onClick={() => setDialog("hour")}
-                        className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm hover:bg-slate-50 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 transition-all"
+                        className="inline-flex items-center gap-1.5 rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all"
                         style={{
                             animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both",
                         }}
@@ -587,28 +587,28 @@ export const ResultsTable = ({
                 )}
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
-                <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 text-sm">
-                    <thead className="bg-slate-50 dark:bg-slate-700/50">
+            <div className="overflow-x-auto rounded-lg border border-havvind-200 dark:border-havvind-700 shadow-sm">
+                <table className="min-w-full divide-y divide-havvind-200 dark:divide-havvind-700 text-sm">
+                    <thead className="bg-havvind-100 dark:bg-havvind-800/50">
                         <tr>
                             {["Linje", "Retning", "Avgang", "Ankomst", "Forsinkelse"].map((h) => (
                                 <th
                                     key={h}
-                                    className="px-4 py-3 text-left font-semibold text-slate-700 dark:text-slate-200 whitespace-nowrap"
+                                    className="px-4 py-3 text-left font-semibold text-havvind-700 dark:text-havvind-200 whitespace-nowrap"
                                 >
                                     {h}
                                 </th>
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100 dark:divide-slate-700 bg-white dark:bg-slate-800">
+                    <tbody className="divide-y divide-havvind-100 dark:divide-havvind-700 bg-havvind-50 dark:bg-havvind-900">
                         {dates.map((date) => (
                             <React.Fragment key={date}>
                                 {/* Date group header */}
-                                <tr className="bg-slate-100 dark:bg-slate-700/60">
+                                <tr className="bg-havvind-100 dark:bg-havvind-800/60">
                                     <td
                                         colSpan={5}
-                                        className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
+                                        className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-havvind-500 dark:text-havvind-400"
                                     >
                                         {formatDateHeading(date)}
                                     </td>
@@ -618,7 +618,7 @@ export const ResultsTable = ({
                                 {grouped[date].map((row) => (
                                     <tr
                                         key={row.datedServiceJourneyId}
-                                        className="hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                                        className="hover:bg-havvind-100 dark:hover:bg-havvind-800/50 transition-colors"
                                         style={{
                                             animation: "row-slide-in 0.3s ease-out both",
                                             animationDelay: `${Math.min((rowAnimationIndex.get(row.datedServiceJourneyId) ?? 0) * 0.03, 0.5)}s`,
@@ -627,7 +627,7 @@ export const ResultsTable = ({
                                         <td className="px-4 py-3 whitespace-nowrap">
                                             <LineBadge tog={row.tog} />
                                         </td>
-                                        <td className="px-4 py-3 text-slate-700 dark:text-slate-200 whitespace-nowrap">
+                                        <td className="px-4 py-3 text-havvind-700 dark:text-havvind-200 whitespace-nowrap">
                                             {row.retning}
                                         </td>
                                         <td className="px-4 py-3 whitespace-nowrap">

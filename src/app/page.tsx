@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
 import path from "path";
-import Image from "next/image";
 import { MainContent } from "@/components/MainContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SettingsButton } from "@/components/SettingsButton";
+import { TrainLogo } from "@/components/TrainLogo";
 
 interface Station {
     id: string;
@@ -24,23 +24,18 @@ const Home = () => {
     const stations = loadStations();
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors">
-            <header className="border-b border-slate-200 bg-white dark:bg-slate-800 dark:border-slate-700 shadow-sm">
+        <div className="min-h-screen bg-havvind-100 dark:bg-havvind-950 transition-colors">
+            <header className="border-b border-havvind-200 bg-havvind-50 dark:bg-havvind-900 dark:border-havvind-700 shadow-sm">
                 <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <Image
-                            src="/icon.png"
-                            alt="Tog logo"
-                            width={40}
-                            height={40}
-                            className="rounded-md object-cover"
-                            style={{ animation: "logo-float 3s ease-in-out infinite" }}
-                        />
+                    <div className="flex items-center gap-5">
+                        <span className="inline-flex transition-transform duration-200 hover:scale-110 cursor-pointer">
+                            <TrainLogo />
+                        </span>
                         <div>
-                            <h1 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+                            <h1 className="text-xl font-bold text-havvind-950 dark:text-havvind-25">
                                 Forsinkede tog
                             </h1>
-                            <p className="mt-0.5 text-sm text-slate-500 dark:text-slate-400">
+                            <p className="mt-0.5 text-sm text-havvind-500 dark:text-havvind-400">
                                 Historiske togforsinkelser fra Entur BigQuery ({stations.length}{" "}
                                 stasjoner tilgjengelig)
                             </p>

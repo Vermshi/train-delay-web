@@ -127,12 +127,12 @@ export const MainContent = ({ stations }: MainContentProps) => {
                 </div>
             )}
 
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
+            <div className="rounded-xl border border-havvind-200 dark:border-havvind-700 bg-havvind-50 dark:bg-havvind-900 p-6 shadow-sm">
                 <SearchForm stations={stations} onSearch={handleSearch} isLoading={isLoading} />
             </div>
 
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6 shadow-sm">
-                <h2 className="mb-4 text-base font-semibold text-slate-800 dark:text-slate-100">
+            <div className="rounded-xl border border-havvind-200 dark:border-havvind-700 bg-havvind-50 dark:bg-havvind-900 p-6 shadow-sm">
+                <h2 className="mb-4 text-base font-semibold text-havvind-800 dark:text-havvind-100">
                     Resultater
                 </h2>
                 <div key={resultsKey}>

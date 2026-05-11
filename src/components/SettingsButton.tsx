@@ -33,10 +33,10 @@ export const SettingsButton = ({ onCredentialChange }: SettingsButtonProps) => {
             <button
                 onClick={() => setDialogOpen(true)}
                 aria-label="Innstillinger"
-                className={`relative rounded-lg p-2 transition-colors ${
+                className={`relative rounded-lg p-2 transition-all hover:scale-110 ${
                     hasCustom
                         ? "text-amber-500 hover:bg-amber-50 hover:text-amber-600 dark:text-amber-400 dark:hover:bg-amber-900/20"
-                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200"
+                        : "text-havvind-500 hover:bg-havvind-100 hover:text-havvind-700 dark:text-havvind-400 dark:hover:bg-havvind-700 dark:hover:text-havvind-200"
                 }`}
             >
                 <svg
@@ -59,7 +59,7 @@ export const SettingsButton = ({ onCredentialChange }: SettingsButtonProps) => {
                     />
                 </svg>
                 {hasCustom && (
-                    <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-amber-400 ring-2 ring-white dark:ring-slate-800" />
+                    <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-amber-400 ring-2 ring-white dark:ring-havvind-900" />
                 )}
             </button>
 
