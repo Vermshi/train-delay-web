@@ -38,6 +38,8 @@ function getBigQueryClient(customCredentials?: Record<string, unknown>): BigQuer
     });
 }
 
+const RESULT_LIMIT = 10000;
+
 const QUERY = `
 WITH base AS (
   SELECT
@@ -141,8 +143,8 @@ WHERE seq_a IS NOT NULL
       ) >= @min_delay
 
 ORDER BY
-  CASE WHEN seq_a < seq_b THEN actual_b ELSE actual_a END ASC
-LIMIT 1500
+  CASE WHEN seq_a < seq_b THEN planned_a ELSE planned_b END ASC
+LIMIT ${RESULT_LIMIT}
 `;
 
 // ── Rate limiting ────────────────────────────────────────────────────────────
@@ -200,7 +202,7 @@ function getCacheKey(
 ): string {
     // Normalise station order so A↔B and B↔A share the same cache entry
     const [s1, s2] = [stationA, stationB].sort();
-    return `tdc:${s1}|${s2}|${startDate}|${endDate}|${minDelay}`;
+    return `tdc:${s1}|${s2}|${startDate}|${endDate}|${minDelay}|${RESULT_LIMIT}`;
 }
 
 function getTtl(endDate: string): number {
@@ -295,7 +297,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "Start date must be before end date" }, { status: 400 });
     }
     const delay = typeof minDelay === "number" ? minDelay : 30;
-    if (delay < 1 || delay > 300) {
+    if (delay < 0 || delay > 300) {
         return NextResponse.json({ error: "minDelay must be between 1 and 300" }, { status: 400 });
     }
 

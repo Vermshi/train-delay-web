@@ -266,7 +266,7 @@ export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTick
     const [preset, setPreset] = useState<DatePreset>("30");
     const [startDate, setStartDate] = useState(defaultRange.start);
     const [endDate, setEndDate] = useState(defaultRange.end);
-    const [minDelay, setMinDelay] = useState(30);
+    const minDelay = 0;
 
     function handlePresetChange(p: DatePreset) {
         setPreset(p);
@@ -308,8 +308,7 @@ export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTick
     const isDirty =
         stationA !== "Drammen stasjon" ||
         stationB !== "Oslo S" ||
-        preset !== "30" ||
-        minDelay !== 30;
+        preset !== "30";
 
     function handleReset() {
         const range = getDateRange("30");
@@ -318,7 +317,6 @@ export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTick
         setPreset("30");
         setStartDate(range.start);
         setEndDate(range.end);
-        setMinDelay(30);
     }
 
     function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
@@ -431,35 +429,6 @@ export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTick
                 )}
             </div>
 
-            {/* Delay slider */}
-            <div>
-                <label className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-1">
-                    Minimum forsinkelse:{" "}
-                    <span
-                        key={minDelay}
-                        className="font-semibold text-havvind-800 dark:text-havvind-400 inline-block"
-                        style={{
-                            animation: "value-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
-                        }}
-                    >
-                        {minDelay} min
-                    </span>
-                </label>
-                <input
-                    type="range"
-                    min={5}
-                    max={120}
-                    step={5}
-                    value={minDelay}
-                    onChange={(e) => setMinDelay(Number(e.target.value))}
-                    className="w-full accent-havvind-800 dark:accent-havvind-400 transition-all cursor-pointer"
-                />
-                <div className="flex justify-between text-xs text-havvind-400 dark:text-havvind-500 mt-1">
-                    <span>5 min</span>
-                    <span>120 min</span>
-                </div>
-            </div>
-
             {/* Ticket number */}
             <div>
                 <label className="block text-sm font-medium text-havvind-700 dark:text-havvind-200 mb-1">
@@ -504,4 +473,4 @@ export const SearchForm = ({ stations, onSearch, isLoading, ticketNumber, onTick
             </div>
         </form>
     );
-}
+};

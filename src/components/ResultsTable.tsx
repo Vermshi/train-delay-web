@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
@@ -9,10 +9,10 @@ interface DelayRow {
     retning: string;
     origin: string;
     destination: string;
-    planned_dep_origin: string;
-    actual_dep_origin: string;
-    planned_arr_destination: string;
-    actual_arr_destination: string;
+    planned_dep_origin: string | null;
+    actual_dep_origin: string | null;
+    planned_arr_destination: string | null;
+    actual_arr_destination: string | null;
     forsinkelse_minutter: number;
     datedServiceJourneyId: string;
 }
@@ -38,13 +38,13 @@ function parseLine(tog: string): string {
 }
 
 // "2026-01-20 06:58:00" → "2026-01-20"
-function parseDate(dt: string): string {
-    return dt.slice(0, 10);
+function parseDate(dt: string | null): string {
+    return dt ? dt.slice(0, 10) : "";
 }
 
 // "2026-01-20 06:58:00" → "06:58"
-function parseTime(dt: string): string {
-    return dt?.slice(11, 16);
+function parseTime(dt: string | null): string {
+    return dt ? dt.slice(11, 16) : "–";
 }
 
 // "2026-01-20" → "20. januar 2026"
@@ -213,7 +213,7 @@ function DelayBadge({ minutes }: { minutes: number }) {
 }
 
 // Shows "06:58 → 07:14" — planned muted, actual bold
-function TimeCell({ planned, actual }: { planned: string; actual: string }) {
+function TimeCell({ planned, actual }: { planned: string | null; actual: string | null }) {
     const pt = parseTime(planned);
     const at = parseTime(actual);
     return (
@@ -226,8 +226,37 @@ function TimeCell({ planned, actual }: { planned: string; actual: string }) {
 }
 
 // "2026-01-20 06:58:00" → 6
-function parseHour(dt: string): number {
-    return parseInt(dt.slice(11, 13), 10);
+function parseHour(dt: string | null): number {
+    return dt ? parseInt(dt.slice(11, 13), 10) : 0;
+}
+
+// Returns all trains in the same direction with a later planned departure
+function getSubsequentDepartures(row: DelayRow, allRows: DelayRow[]): DelayRow[] {
+    if (!row.planned_dep_origin) return [];
+    return allRows
+        .filter(
+            (other) =>
+                other.datedServiceJourneyId !== row.datedServiceJourneyId &&
+                other.retning === row.retning &&
+                other.planned_dep_origin !== null &&
+                other.planned_dep_origin > row.planned_dep_origin!,
+        )
+        .sort((a, b) => (a.planned_dep_origin ?? "").localeCompare(b.planned_dep_origin ?? ""));
+}
+
+function parseDateTime(dt: string): Date {
+    return new Date(dt.replace(" ", "T"));
+}
+
+// Returns true if no later train would get you within 30 min of original arrival
+function isIrreplaceable(row: DelayRow, allRows: DelayRow[]): boolean {
+    if (!row.planned_arr_destination) return true;
+    const originalArrival = parseDateTime(row.planned_arr_destination);
+    return !getSubsequentDepartures(row, allRows).some((other) => {
+        if (!other.actual_arr_destination) return false;
+        const altArrival = parseDateTime(other.actual_arr_destination);
+        return (altArrival.getTime() - originalArrival.getTime()) / 60000 < 30;
+    });
 }
 
 function buildPerDayData(results: DelayRow[]) {
@@ -376,6 +405,8 @@ function buildRefundUrl(
     return `https://www.vy.no/kundeservice/skjema/prisavslag-og-erstatning?${params.toString()}`;
 }
 
+const PAGE_SIZE = 500;
+
 export const ResultsTable = ({
     results,
     isLoading,
@@ -385,7 +416,36 @@ export const ResultsTable = ({
     stations,
 }: ResultsTableProps) => {
     const [dialog, setDialog] = useState<"day" | "hour" | null>(null);
+    const [filterImpossible, setFilterImpossible] = useState(true);
+    const [page, setPage] = useState(0);
     const stationMap = new Map(stations.map((s) => [s.name, s.id]));
+
+    useEffect(() => { setPage(0); }, [results, filterImpossible]);
+
+    const displayedResults = useMemo(
+        () =>
+            filterImpossible
+                ? results.filter(
+                      (row) => row.forsinkelse_minutter >= 30 && isIrreplaceable(row, results),
+                  )
+                : results,
+        [filterImpossible, results],
+    );
+
+    const totalPages = Math.ceil(displayedResults.length / PAGE_SIZE);
+    const pagedResults = useMemo(
+        () => displayedResults.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE),
+        [displayedResults, page],
+    );
+
+    const alternativesMap = useMemo(() => {
+        if (!filterImpossible) return new Map<string, DelayRow[]>();
+        const map = new Map<string, DelayRow[]>();
+        for (const row of pagedResults) {
+            map.set(row.datedServiceJourneyId, getSubsequentDepartures(row, results).slice(0, 5));
+        }
+        return map;
+    }, [filterImpossible, pagedResults, results]);
 
     if (isLoading) {
         return <TrainLoader />;
@@ -425,15 +485,13 @@ export const ResultsTable = ({
     }
 
     // Group by the date of planned departure
-    const grouped = results.reduce<Record<string, DelayRow[]>>((acc, row) => {
+    const grouped = pagedResults.reduce<Record<string, DelayRow[]>>((acc, row) => {
         const date = parseDate(row.planned_dep_origin);
         (acc[date] ??= []).push(row);
         return acc;
     }, {});
     const dates = Object.keys(grouped).sort();
 
-    // Pre-compute animation indices before render to avoid side-effectful mutation
-    // during the render pass (which breaks in React StrictMode).
     const rowAnimationIndex = new Map(
         dates.flatMap((date) => grouped[date]).map((row, i) => [row.datedServiceJourneyId, i])
     );
@@ -443,19 +501,31 @@ export const ResultsTable = ({
             <div className="flex items-center justify-between">
                 <p
                     className="text-sm text-havvind-600 dark:text-havvind-300"
-                    style={{
-                        animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both",
-                    }}
+                    style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both" }}
                 >
-                    Viser <span className="font-semibold">{results.length}</span> forsinkede tog
+                    Viser <span className="font-semibold">{displayedResults.length}</span>
+                    {filterImpossible && displayedResults.length !== results.length && (
+                        <span className="text-havvind-400 dark:text-havvind-500"> av {results.length}</span>
+                    )}{" "}
+                    forsinkede tog
                 </p>
                 <div className="flex items-center gap-2">
                     <button
+                        onClick={() => setFilterImpossible((v) => !v)}
+                        className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium shadow-sm hover:-translate-y-0.5 hover:shadow-md active:scale-95 transition-all ${
+                            filterImpossible
+                                ? "border-havvind-800 bg-havvind-900 text-white dark:bg-havvind-800 dark:border-havvind-700"
+                                : "border-havvind-200 bg-havvind-50 text-havvind-600 hover:bg-havvind-100 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700"
+                        }`}
+                        style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both" }}
+                        title="Vis kun forsinkelser der ingen etterfølgende tog i samme retning er uten 30+ min forsinkelse"
+                    >
+                        Kun umulig å unngå
+                    </button>
+                    <button
                         onClick={() => setDialog("day")}
                         className="inline-flex items-center gap-1.5 rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all"
-                        style={{
-                            animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both",
-                        }}
+                        style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both" }}
                     >
                         <ChartIcon />
                         Graf per dag
@@ -463,22 +533,18 @@ export const ResultsTable = ({
                     <button
                         onClick={() => setDialog("hour")}
                         className="inline-flex items-center gap-1.5 rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all"
-                        style={{
-                            animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both",
-                        }}
+                        style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both" }}
                     >
                         <ChartIcon />
                         Graf per time
                     </button>
                 </div>
-                {results.length >= 1500 && (
+                {results.length >= 10000 && (
                     <span
                         className="rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-900 border border-amber-300 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-700"
-                        style={{
-                            animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both",
-                        }}
+                        style={{ animation: "pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both" }}
                     >
-                        Maks 1500 resultater — prøv kortere periode
+                        Maks 10000 resultater — prøv kortere periode
                     </span>
                 )}
             </div>
@@ -488,10 +554,7 @@ export const ResultsTable = ({
                     <thead className="bg-havvind-100 dark:bg-havvind-800/50">
                         <tr>
                             {["Linje", "Retning", "Avgang", "Ankomst", "Forsinkelse", ""].map((h) => (
-                                <th
-                                    key={h}
-                                    className="px-4 py-3 text-left font-semibold text-havvind-700 dark:text-havvind-200 whitespace-nowrap"
-                                >
+                                <th key={h} className="px-4 py-3 text-left font-semibold text-havvind-700 dark:text-havvind-200 whitespace-nowrap">
                                     {h}
                                 </th>
                             ))}
@@ -500,80 +563,117 @@ export const ResultsTable = ({
                     <tbody className="divide-y divide-havvind-100 dark:divide-havvind-700 bg-havvind-50 dark:bg-havvind-900">
                         {dates.map((date) => (
                             <React.Fragment key={date}>
-                                {/* Date group header */}
                                 <tr className="bg-havvind-100 dark:bg-havvind-800/60">
-                                    <td
-                                        colSpan={5}
-                                        className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-havvind-500 dark:text-havvind-400"
-                                    >
+                                    <td colSpan={6} className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-havvind-500 dark:text-havvind-400">
                                         {formatDateHeading(date)}
                                     </td>
                                 </tr>
 
-                                {/* Rows for this date */}
-                                {grouped[date].map((row) => (
-                                    <tr
-                                        key={row.datedServiceJourneyId}
-                                        className="hover:bg-havvind-100 dark:hover:bg-havvind-800/50 transition-colors"
-                                        style={{
-                                            animation: "row-slide-in 0.3s ease-out both",
-                                            animationDelay: `${Math.min((rowAnimationIndex.get(row.datedServiceJourneyId) ?? 0) * 0.03, 0.5)}s`,
-                                        }}
-                                    >
-                                        <td className="px-4 py-3 whitespace-nowrap">
-                                            <LineBadge tog={row.tog} />
-                                        </td>
-                                        <td className="px-4 py-3 text-havvind-700 dark:text-havvind-200 whitespace-nowrap">
-                                            {row.retning}
-                                        </td>
-                                        <td className="px-4 py-3 whitespace-nowrap">
-                                            <TimeCell
-                                                planned={row.planned_dep_origin}
-                                                actual={row.actual_dep_origin}
-                                            />
-                                        </td>
-                                        <td className="px-4 py-3 whitespace-nowrap">
-                                            <TimeCell
-                                                planned={row.planned_arr_destination}
-                                                actual={row.actual_arr_destination}
-                                            />
-                                        </td>
-                                        <td className="px-4 py-3 whitespace-nowrap">
-                                            <DelayBadge minutes={row.forsinkelse_minutter} />
-                                        </td>
-                                        <td className="px-4 py-3 whitespace-nowrap">
-                                            <a
-                                                href={buildRefundUrl(row, ticketNumber, stationMap)}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center rounded-md border border-havvind-200 bg-havvind-50 px-2.5 py-1 text-xs font-medium text-havvind-600 hover:bg-havvind-100 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-colors"
+                                {grouped[date].map((row) => {
+                                    const alternatives = alternativesMap.get(row.datedServiceJourneyId) ?? [];
+                                    return (
+                                        <React.Fragment key={row.datedServiceJourneyId}>
+                                            <tr
+                                                className="hover:bg-havvind-100 dark:hover:bg-havvind-800/50 transition-colors"
+                                                style={{
+                                                    animation: "row-slide-in 0.3s ease-out both",
+                                                    animationDelay: `${Math.min((rowAnimationIndex.get(row.datedServiceJourneyId) ?? 0) * 0.03, 0.5)}s`,
+                                                }}
                                             >
-                                                Refusjon →
-                                            </a>
-                                        </td>
-                                    </tr>
-                                ))}
+                                                <td className="px-4 py-3 whitespace-nowrap"><LineBadge tog={row.tog} /></td>
+                                                <td className="px-4 py-3 text-havvind-700 dark:text-havvind-200 whitespace-nowrap">{row.retning}</td>
+                                                <td className="px-4 py-3 whitespace-nowrap">
+                                                    <TimeCell planned={row.planned_dep_origin} actual={row.actual_dep_origin} />
+                                                </td>
+                                                <td className="px-4 py-3 whitespace-nowrap">
+                                                    <TimeCell planned={row.planned_arr_destination} actual={row.actual_arr_destination} />
+                                                </td>
+                                                <td className="px-4 py-3 whitespace-nowrap">
+                                                    <DelayBadge minutes={row.forsinkelse_minutter} />
+                                                </td>
+                                                <td className="px-4 py-3 whitespace-nowrap">
+                                                    <a
+                                                        href={buildRefundUrl(row, ticketNumber, stationMap)}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="inline-flex items-center gap-1.5 rounded-md border border-havvind-200 bg-havvind-50 px-2.5 py-1 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 hover:-translate-y-0.5 hover:shadow-md active:scale-95 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all"
+                                                    >
+                                                        Krev refusjon
+                                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                                                            <path d="M3 1h6v6M9 1 1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {alternatives.map((alt) => (
+                                                <tr key={`alt-${alt.datedServiceJourneyId}`} className="border-l-4 border-havvind-200 dark:border-havvind-600 bg-havvind-50/50 dark:bg-havvind-800/30">
+                                                    <td className="pl-3 pr-4 py-2 whitespace-nowrap"><LineBadge tog={alt.tog} /></td>
+                                                    <td className="px-4 py-2 whitespace-nowrap text-xs text-havvind-400 dark:text-havvind-500 italic">↳ Neste avgang</td>
+                                                    <td className="px-4 py-2 whitespace-nowrap opacity-60">
+                                                        <TimeCell planned={alt.planned_dep_origin} actual={alt.actual_dep_origin} />
+                                                    </td>
+                                                    <td className="px-4 py-2 whitespace-nowrap opacity-60">
+                                                        <TimeCell planned={alt.planned_arr_destination} actual={alt.actual_arr_destination} />
+                                                    </td>
+                                                    <td className="px-4 py-2 whitespace-nowrap opacity-60">
+                                                        <DelayBadge minutes={alt.forsinkelse_minutter} />
+                                                    </td>
+                                                    <td />
+                                                </tr>
+                                            ))}
+                                        </React.Fragment>
+                                    );
+                                })}
                             </React.Fragment>
                         ))}
                     </tbody>
                 </table>
             </div>
 
+            {totalPages > 1 && (() => {
+                const visible = new Set<number>();
+                for (let i = 0; i < totalPages; i++) {
+                    if (i === 0 || i === totalPages - 1 || Math.abs(i - page) <= 2) visible.add(i);
+                }
+                const items: (number | "…")[] = [];
+                const sorted = Array.from(visible).sort((a, b) => a - b);
+                for (let k = 0; k < sorted.length; k++) {
+                    if (k > 0 && sorted[k] - sorted[k - 1] > 1) items.push("…");
+                    items.push(sorted[k]);
+                }
+                return (
+                    <div className="flex items-center justify-center flex-wrap gap-1.5 pt-1">
+                        <button onClick={() => setPage((p) => p - 1)} disabled={page === 0}
+                            className="rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 disabled:opacity-40 disabled:cursor-not-allowed dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all">
+                            ←
+                        </button>
+                        {items.map((item, idx) =>
+                            item === "…" ? (
+                                <span key={`ellipsis-${idx}`} className="px-1 text-xs text-havvind-400 dark:text-havvind-500">…</span>
+                            ) : (
+                                <button key={item} onClick={() => setPage(item)}
+                                    className={`rounded-md border px-3 py-1.5 text-xs font-medium shadow-sm transition-all ${
+                                        item === page
+                                            ? "border-havvind-800 bg-havvind-900 text-white dark:bg-havvind-800 dark:border-havvind-700"
+                                            : "border-havvind-200 bg-havvind-50 text-havvind-600 hover:bg-havvind-100 dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700"
+                                    }`}>
+                                    {item + 1}
+                                </button>
+                            )
+                        )}
+                        <button onClick={() => setPage((p) => p + 1)} disabled={page >= totalPages - 1}
+                            className="rounded-md border border-havvind-200 bg-havvind-50 px-3 py-1.5 text-xs font-medium text-havvind-600 shadow-sm hover:bg-havvind-100 disabled:opacity-40 disabled:cursor-not-allowed dark:border-havvind-600 dark:bg-havvind-800 dark:text-havvind-300 dark:hover:bg-havvind-700 transition-all">
+                            →
+                        </button>
+                    </div>
+                );
+            })()}
+
             {dialog === "day" && (
-                <ChartDialog
-                    title="Forsinkelser per dag"
-                    data={buildPerDayData(results)}
-                    xLabel="Dato"
-                    onClose={() => setDialog(null)}
-                />
+                <ChartDialog title="Forsinkelser per dag" data={buildPerDayData(displayedResults)} xLabel="Dato" onClose={() => setDialog(null)} />
             )}
             {dialog === "hour" && (
-                <ChartDialog
-                    title="Forsinkelser per time på døgnet"
-                    data={buildPerHourData(results)}
-                    xLabel="Time"
-                    onClose={() => setDialog(null)}
-                />
+                <ChartDialog title="Forsinkelser per time på døgnet" data={buildPerHourData(displayedResults)} xLabel="Time" onClose={() => setDialog(null)} />
             )}
         </div>
     );
