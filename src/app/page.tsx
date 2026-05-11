@@ -4,6 +4,7 @@ import { MainContent } from "@/components/MainContent";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SettingsButton } from "@/components/SettingsButton";
 import { TrainLogo } from "@/components/TrainLogo";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 interface Station {
     id: string;
@@ -41,7 +42,8 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-3">
+                        <ThemeSwitcher />
                         <SettingsButton />
                         <ThemeToggle />
                     </div>

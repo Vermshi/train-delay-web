@@ -1,6 +1,72 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
+/* ── Themes ─────────────────────────────────────────────────────────────────── */
+
+:root {
+    /* Havvind — Jotun Havperle sea-pearl blue-gray */
+    --hw-25:  249 251 252;
+    --hw-50:  244 247 249;
+    --hw-100: 232 239 244;
+    --hw-200: 208 221 230;
+    --hw-300: 175 192 205;
+    --hw-400: 143 165 181;
+    --hw-500: 111 143 162;
+    --hw-600: 88 122 140;
+    --hw-700: 70 96 112;
+    --hw-800: 62 90 108;
+    --hw-900: 44 64 80;
+    --hw-950: 26 43 56;
+}
+
+[data-theme="navy"] {
+    /* Nattblå — deep Nordic navy */
+    --hw-25:  245 247 250;
+    --hw-50:  237 240 245;
+    --hw-100: 219 225 236;
+    --hw-200: 184 196 216;
+    --hw-300: 148 168 196;
+    --hw-400: 112 144 176;
+    --hw-500: 84 109 140;
+    --hw-600: 61 82 112;
+    --hw-700: 47 66 96;
+    --hw-800: 37 54 80;
+    --hw-900: 28 42 64;
+    --hw-950: 18 28 46;
+}
+
+[data-theme="forest"] {
+    /* Mosemark — aged moss on stone */
+    --hw-25:  245 248 246;
+    --hw-50:  232 240 234;
+    --hw-100: 212 224 216;
+    --hw-200: 170 196 176;
+    --hw-300: 138 176 154;
+    --hw-400: 106 152 120;
+    --hw-500: 74 112 96;
+    --hw-600: 47 82 64;
+    --hw-700: 36 62 48;
+    --hw-800: 30 56 40;
+    --hw-900: 22 42 32;
+    --hw-950: 14 30 22;
+}
+
+[data-theme="terra"] {
+    /* Leirstein — dusty clay-red */
+    --hw-25:  250 247 245;
+    --hw-50:  242 236 232;
+    --hw-100: 228 213 208;
+    --hw-200: 200 176 160;
+    --hw-300: 176 136 120;
+    --hw-400: 154 112 96;
+    --hw-500: 126 88 72;
+    --hw-600: 107 64 56;
+    --hw-700: 84 48 40;
+    --hw-800: 66 36 32;
+    --hw-900: 50 26 20;
+    --hw-950: 32 16 10;
+}
+
 /* ── Juicy animation keyframes ─────────────────────────────────────────────── */
 
 /* Train loader */
@@ -125,12 +191,12 @@
     100% {
         box-shadow:
             0 1px 3px 0 rgb(0 0 0 / 0.1),
-            0 0 0 0 rgb(88 122 140 / 0.3);
+            0 0 0 0 rgb(var(--hw-600) / 0.3);
     }
     50% {
         box-shadow:
             0 1px 3px 0 rgb(0 0 0 / 0.1),
-            0 0 20px 5px rgb(88 122 140 / 0.18);
+            0 0 20px 5px rgb(var(--hw-600) / 0.18);
     }
 }
 
@@ -221,10 +287,17 @@
     }
 }
 
+/* ── Recharts theme overrides ───────────────────────────────────────────────── */
+.themed-chart .recharts-rectangle { fill: rgb(var(--hw-600)); }
+.themed-chart .recharts-cartesian-grid-horizontal line,
+.themed-chart .recharts-cartesian-grid-vertical line { stroke: rgb(var(--hw-200)); }
+.themed-chart .recharts-cartesian-axis-tick-value { fill: rgb(var(--hw-400)); }
+.themed-chart .recharts-tooltip-cursor { fill: rgb(var(--hw-600) / 0.12); }
+
 /* ── Placeholder contrast ───────────────────────────────────────────────────── */
 input::placeholder {
-    color: #6f8fa2; /* havvind-500 */
+    color: rgb(var(--hw-500));
 }
 .dark input::placeholder {
-    color: #afc0cd; /* havvind-300 */
+    color: rgb(var(--hw-300));
 }

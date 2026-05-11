@@ -87,217 +87,78 @@ function TrainLoader() {
                 {/* Scrolling track sleepers */}
                 <g style={{ animation: "track-scroll 0.45s linear infinite" }}>
                     {Array.from({ length: 10 }).map((_, i) => (
-                        <rect
-                            key={i}
-                            x={i * 40 - 20}
-                            y={103}
-                            width={16}
-                            height={6}
-                            rx={1}
-                            fill="#afc0cd"
-                        />
+                        <rect key={i} x={i * 40 - 20} y={103} width={16} height={6} rx={1} className="fill-havvind-300" />
                     ))}
                 </g>
 
                 {/* Rails */}
-                <rect x={0} y={100} width={320} height={3} rx={1} fill="#587a8c" />
-                <rect x={0} y={107} width={320} height={3} rx={1} fill="#587a8c" />
+                <rect x={0} y={100} width={320} height={3} rx={1} className="fill-havvind-600" />
+                <rect x={0} y={107} width={320} height={3} rx={1} className="fill-havvind-600" />
 
-                {/* Speed lines — outside bob group so they stay level */}
+                {/* Speed lines */}
                 {speedLines.map(({ x, y, w, h, delay }, i) => (
-                    <rect
-                        key={`sl-${i}`}
-                        x={x}
-                        y={y}
-                        width={w}
-                        height={h}
-                        rx={h / 2}
-                        fill="#8fa5b5"
-                        style={{
-                            animation: `speed-line-flash 0.5s ease-in-out ${delay} infinite`,
-                        }}
-                    />
+                    <rect key={`sl-${i}`} x={x} y={y} width={w} height={h} rx={h / 2} className="fill-havvind-400"
+                        style={{ animation: `speed-line-flash 0.5s ease-in-out ${delay} infinite` }} />
                 ))}
 
                 {/* Train — bobs vertically */}
                 <g style={{ animation: "train-bob 0.5s ease-in-out infinite" }}>
                     {/* Smoke puffs from chimney */}
                     {smokeConfig.map(({ cx, cy, r, delay }, i) => (
-                        <circle
-                            key={`sm-${i}`}
-                            cx={cx}
-                            cy={cy}
-                            r={r}
-                            fill="#afc0cd"
-                            style={{
-                                opacity: 0,
-                                animation: `smoke-float 1s ease-out ${delay} infinite`,
-                            }}
-                        />
+                        <circle key={`sm-${i}`} cx={cx} cy={cy} r={r} className="fill-havvind-300"
+                            style={{ opacity: 0, animation: `smoke-float 1s ease-out ${delay} infinite` }} />
                     ))}
 
-                    {/* Undercarriage — spans full train length */}
-                    <rect x={24} y={83} width={238} height={8} rx={3} fill="#2c4050" />
+                    {/* Undercarriage */}
+                    <rect x={24} y={83} width={238} height={8} rx={3} className="fill-havvind-900" />
 
-                    {/* ── LOCOMOTIVE (left / front) ── */}
-
-                    {/* Boiler body — taller than passenger car */}
-                    <rect x={30} y={38} width={95} height={47} rx={5} fill="#3e5a6c" />
-                    {/* Boiler accent stripe */}
-                    <rect x={30} y={79} width={95} height={4} fill="#2c4050" />
-
-                    {/* Steam dome on boiler */}
-                    <ellipse cx={80} cy={38} rx={14} ry={7} fill="#2c4050" />
-
-                    {/* Chimney pipe — front portion of boiler */}
-                    <rect x={50} y={18} width={10} height={22} rx={2} fill="#1a2e3a" />
-                    {/* Chimney flared top */}
-                    <rect x={47} y={14} width={16} height={6} rx={2} fill="#1a2e3a" />
-
-                    {/* Cab — rear of locomotive */}
-                    <rect x={105} y={42} width={28} height={43} rx={3} fill="#466070" />
-                    {/* Cab accent stripe */}
-                    <rect x={105} y={79} width={28} height={4} fill="#2c4050" />
-                    {/* Cab windows */}
-                    <rect
-                        x={108}
-                        y={50}
-                        width={11}
-                        height={11}
-                        rx={2}
-                        fill="white"
-                        opacity={0.92}
-                    />
-                    <rect
-                        x={122}
-                        y={50}
-                        width={11}
-                        height={11}
-                        rx={2}
-                        fill="white"
-                        opacity={0.92}
-                    />
-                    {/* Window reflections */}
+                    {/* ── LOCOMOTIVE ── */}
+                    <rect x={30} y={38} width={95} height={47} rx={5} className="fill-havvind-800" />
+                    <rect x={30} y={79} width={95} height={4} className="fill-havvind-900" />
+                    <ellipse cx={80} cy={38} rx={14} ry={7} className="fill-havvind-900" />
+                    <rect x={50} y={18} width={10} height={22} rx={2} className="fill-havvind-950" />
+                    <rect x={47} y={14} width={16} height={6} rx={2} className="fill-havvind-950" />
+                    <rect x={105} y={42} width={28} height={43} rx={3} className="fill-havvind-700" />
+                    <rect x={105} y={79} width={28} height={4} className="fill-havvind-900" />
+                    <rect x={108} y={50} width={11} height={11} rx={2} fill="white" opacity={0.92} />
+                    <rect x={122} y={50} width={11} height={11} rx={2} fill="white" opacity={0.92} />
                     <rect x={108} y={50} width={4} height={3} rx={1} fill="white" opacity={0.5} />
                     <rect x={122} y={50} width={4} height={3} rx={1} fill="white" opacity={0.5} />
+                    <rect x={24} y={40} width={9} height={45} rx={3} className="fill-havvind-900" />
+                    <circle cx={28} cy={63} r={11} fill="#fef3c7" opacity={0.18}
+                        style={{ animation: "headlight-flicker 2.5s ease-in-out infinite" }} />
+                    <circle cx={28} cy={63} r={5} fill="#fef3c7" opacity={0.95}
+                        style={{ animation: "headlight-flicker 2.5s ease-in-out infinite" }} />
+                    <rect x={12} y={76} width={13} height={6} rx={2} className="fill-havvind-600" />
 
-                    {/* Nose plate — left edge */}
-                    <rect x={24} y={40} width={9} height={45} rx={3} fill="#2c4050" />
-
-                    {/* Headlight glow */}
-                    <circle
-                        cx={28}
-                        cy={63}
-                        r={11}
-                        fill="#fef3c7"
-                        opacity={0.18}
-                        style={{ animation: "headlight-flicker 2.5s ease-in-out infinite" }}
-                    />
-                    {/* Headlight */}
-                    <circle
-                        cx={28}
-                        cy={63}
-                        r={5}
-                        fill="#fef3c7"
-                        opacity={0.95}
-                        style={{ animation: "headlight-flicker 2.5s ease-in-out infinite" }}
-                    />
-
-                    {/* Front coupler */}
-                    <rect x={12} y={76} width={13} height={6} rx={2} fill="#587a8c" />
-
-                    {/* ── PASSENGER CAR (right / rear) ── */}
-
-                    <rect x={140} y={50} width={118} height={35} rx={5} fill="#466070" />
-                    {/* Passenger car accent stripe */}
-                    <rect x={140} y={79} width={118} height={4} fill="#3e5a6c" />
-                    {/* Passenger windows */}
+                    {/* ── PASSENGER CAR ── */}
+                    <rect x={140} y={50} width={118} height={35} rx={5} className="fill-havvind-700" />
+                    <rect x={140} y={79} width={118} height={4} className="fill-havvind-800" />
                     {[150, 172, 194, 216].map((x) => (
                         <g key={x}>
-                            <rect
-                                x={x}
-                                y={58}
-                                width={15}
-                                height={11}
-                                rx={2}
-                                fill="white"
-                                opacity={0.75}
-                            />
-                            <rect
-                                x={x}
-                                y={58}
-                                width={5}
-                                height={3}
-                                rx={1}
-                                fill="white"
-                                opacity={0.4}
-                            />
+                            <rect x={x} y={58} width={15} height={11} rx={2} fill="white" opacity={0.75} />
+                            <rect x={x} y={58} width={5} height={3} rx={1} fill="white" opacity={0.4} />
                         </g>
                     ))}
-                    {/* Rear coupler */}
-                    <rect x={257} y={76} width={13} height={6} rx={2} fill="#587a8c" />
+                    <rect x={257} y={76} width={13} height={6} rx={2} className="fill-havvind-600" />
 
                     {/* ── WHEELS ── */}
                     {[50, 90, 155, 200, 240].map((cx) => (
-                        <g
-                            key={cx}
-                            style={{
-                                transformBox: "fill-box",
-                                transformOrigin: "center",
-                                animation: "wheel-spin 0.6s linear infinite",
-                            }}
-                        >
-                            <circle cx={cx} cy={97} r={10} fill="#2c4050" />
-                            <circle cx={cx} cy={97} r={6.5} fill="#3e5a6c" />
-                            <line
-                                x1={cx - 6}
-                                y1={97}
-                                x2={cx + 6}
-                                y2={97}
-                                stroke="#6f8fa2"
-                                strokeWidth={1.5}
-                            />
-                            <line
-                                x1={cx}
-                                y1={91}
-                                x2={cx}
-                                y2={103}
-                                stroke="#6f8fa2"
-                                strokeWidth={1.5}
-                            />
-                            <line
-                                x1={cx - 4}
-                                y1={93}
-                                x2={cx + 4}
-                                y2={101}
-                                stroke="#6f8fa2"
-                                strokeWidth={1}
-                            />
-                            <line
-                                x1={cx + 4}
-                                y1={93}
-                                x2={cx - 4}
-                                y2={101}
-                                stroke="#6f8fa2"
-                                strokeWidth={1}
-                            />
-                            <circle cx={cx} cy={97} r={2.5} fill="#afc0cd" />
+                        <g key={cx} style={{ transformBox: "fill-box", transformOrigin: "center", animation: "wheel-spin 0.6s linear infinite" }}>
+                            <circle cx={cx} cy={97} r={10} className="fill-havvind-900" />
+                            <circle cx={cx} cy={97} r={6.5} className="fill-havvind-800" />
+                            <line x1={cx - 6} y1={97} x2={cx + 6} y2={97} className="stroke-havvind-500" strokeWidth={1.5} />
+                            <line x1={cx} y1={91} x2={cx} y2={103} className="stroke-havvind-500" strokeWidth={1.5} />
+                            <line x1={cx - 4} y1={93} x2={cx + 4} y2={101} className="stroke-havvind-500" strokeWidth={1} />
+                            <line x1={cx + 4} y1={93} x2={cx - 4} y2={101} className="stroke-havvind-500" strokeWidth={1} />
+                            <circle cx={cx} cy={97} r={2.5} className="fill-havvind-300" />
                         </g>
                     ))}
 
-                    {/* Steam jets from undercarriage */}
+                    {/* Steam jets */}
                     {steamJets.map(({ cx, delay }, i) => (
-                        <ellipse
-                            key={`stm-${i}`}
-                            cx={cx}
-                            cy={93}
-                            rx={5}
-                            ry={3}
-                            fill="#e2e8f0"
-                            style={{
-                                opacity: 0,
-                                animation: `steam-jet 0.7s ease-out ${delay} infinite`,
-                            }}
+                        <ellipse key={`stm-${i}`} cx={cx} cy={93} rx={5} ry={3} className="fill-havvind-200"
+                            style={{ opacity: 0, animation: `steam-jet 0.7s ease-out ${delay} infinite` }}
                         />
                     ))}
                 </g>
@@ -436,7 +297,7 @@ function ChartDialog({
                         </svg>
                     </button>
                 </div>
-                <ResponsiveContainer width="100%" height={300}>
+                <ResponsiveContainer width="100%" height={300} className="themed-chart">
                     <BarChart data={data} margin={{ top: 4, right: 8, left: -16, bottom: 4 }}>
                         <CartesianGrid
                             strokeDasharray="3 3"
@@ -464,13 +325,15 @@ function ChartDialog({
                         />
                         <Tooltip
                             contentStyle={{
-                                background: "var(--tooltip-bg, #2c4050)",
-                                border: "none",
+                                background: "rgb(var(--hw-900))",
+                                border: "1px solid rgb(var(--hw-700))",
                                 borderRadius: 8,
                                 fontSize: 12,
-                                color: "#f1f5f9",
+                                color: "rgb(var(--hw-100))",
                             }}
-                            cursor={{ fill: "rgba(88,122,140,0.12)" }}
+                            labelStyle={{ color: "rgb(var(--hw-300))" }}
+                            itemStyle={{ color: "rgb(var(--hw-100))" }}
+                            cursor={{ fill: "rgb(var(--hw-600) / 0.12)" }}
                             formatter={(v: number | undefined) => [v ?? 0, "Forsinkelser"]}
                             labelFormatter={(l) => `${xLabel === "Time" ? `Kl. ${l}` : l}`}
                         />

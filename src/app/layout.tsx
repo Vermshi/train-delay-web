@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,11 +17,7 @@ const RootLayout = ({
 }>) => (
     <html lang="nb" suppressHydrationWarning>
         <body className={`${inter.className} antialiased`}>
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `try{const t=localStorage.getItem('theme');if(t!=='light')document.documentElement.classList.add('dark')}catch{}`,
-                }}
-            />
+            <Script src="/theme-init.js" strategy="beforeInteractive" />
             {children}
         </body>
     </html>
