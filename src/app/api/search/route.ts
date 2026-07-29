@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { BigQuery } from "@google-cloud/bigquery";
-import { Redis } from "@upstash/redis";
+import { getCache } from "@vercel/functions";
 import { readFileSync } from "fs";
 
 export const runtime = "nodejs";
@@ -176,15 +176,9 @@ function checkRateLimit(ip: string): {
 }
 
 // ── Query result cache ────────────────────────────────────────────────────────
-// Uses Upstash Redis when env vars are present (persists across cold starts).
-// Falls back to a globalThis in-memory Map for local dev without Upstash.
-const redis =
-    process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
-        ? new Redis({
-              url: process.env.KV_REST_API_URL,
-              token: process.env.KV_REST_API_TOKEN,
-          })
-        : null;
+// Uses the Vercel Runtime Cache (per-region, survives cold starts, free on all
+// plans). All cache operations are best-effort: a cache failure must never fail
+// the request — we fall back to the in-memory Map, or just hit BigQuery again.
 
 // In-memory fallback — survives HMR reloads via globalThis
 const _g = globalThis as typeof globalThis & { queryCache?: Map<string, unknown[]> };
@@ -215,17 +209,20 @@ function getTtl(endDate: string): number {
 }
 
 async function cacheGet(key: string): Promise<unknown[] | null> {
-    if (redis) {
-        const val = await redis.get<unknown[]>(key);
-        return val ?? null;
+    try {
+        const val = (await getCache().get(key)) as unknown[] | undefined;
+        if (val) return val;
+    } catch {
+        // Runtime cache unavailable (e.g. local dev) — fall through to memory
     }
     return memCache.get(key) ?? null;
 }
 
 async function cacheSet(key: string, rows: unknown[], ttlSecs: number): Promise<void> {
-    if (redis) {
-        await redis.set(key, rows, { ex: ttlSecs });
-        return;
+    try {
+        await getCache().set(key, rows, { ttl: ttlSecs, name: "train-delay-search" });
+    } catch {
+        // Best-effort only — never fail the request over a cache write
     }
     if (memCache.size >= MEM_CACHE_MAX) {
         memCache.delete(memCache.keys().next().value!);
